@@ -1,3 +1,6 @@
+.RData
 .Rproj.user
 .Rhistory
-.RData
+inst/doc
+.httr-oauth
+*.Rds

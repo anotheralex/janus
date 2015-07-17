@@ -1,10 +1,13 @@
 Package: janus
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Classification and Feature Selection
 Version: 0.1
 Date: 2015-07-17
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: c(
+    {person("Alex", "Wollenschlaeger", , "awolle01@dcs.bbk.ac.uk",
+        c("aut", "cre")}
+)
+Description: A package that provides a consistent interface to popular
+    classification and feature selection algorithms.
+License: MIT
 LazyData: TRUE
