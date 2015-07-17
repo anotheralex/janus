@@ -1,6 +1,4 @@
 .RData
 .Rproj.user
 .Rhistory
-inst/doc
-.httr-oauth
 *.Rds
