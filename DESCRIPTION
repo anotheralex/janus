@@ -9,5 +9,7 @@ Authors@R: c(
 )
 Description: A package that provides a consistent interface to popular
     classification and feature selection algorithms.
+URL: https://github.com/anotheralex/janus
+BugReports: https://github.com/anotheralex/janus/issues
 License: MIT
 LazyData: TRUE
