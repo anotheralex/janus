@@ -6,5 +6,3 @@ fit <- function(algorithm) {
          "logistic" = print("logistic regression in glm"),
          "svm" = print("support vector machine in e1071"))
 }
-fit("logistic")
-fit("svm")
