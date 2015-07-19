@@ -17,6 +17,7 @@ fit_glm <- function(formula, data) {
              family = "binomial")
 }
 
+
 #' fit a support vector machine classifier using e1071::svm
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
