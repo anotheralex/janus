@@ -1,10 +1,10 @@
 #' fit a model of the required type
-#' @param algorithm, one of: glm, svc
+#' @param classifier, the classifier to use. one of: glm, e1071
 #'
 fit <- function(formula, data, classifier) {
   switch(EXPR = classifier,
          "glm" = fit_glm(formula, data),
-         "svm" = print("starting e1071..."))
+         "e1071" = print("starting e1071..."))
 }
 
 #' fit a logistic regression model using stats::glm
