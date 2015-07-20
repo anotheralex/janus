@@ -1,4 +1,4 @@
-#' fit a model of the required type
+#' fit a model of the specified type
 #' @param formula, a formula object
 #' @param data, a data frame
 #' @param classifier, a string indicating the classifier to use.
