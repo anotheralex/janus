@@ -1,5 +1,8 @@
 #' fit a model of the required type
-#' @param classifier, the classifier to use. one of: glm, e1071
+#' @param formula, a formula object
+#' @param data, a data frame
+#' @param classifier, a string indicating the classifier to use.
+#'    one of: glm, e1071
 #'
 fit <- function(formula, data, classifier) {
   if(missing(formula)) {stop("missing formula", call. = FALSE)}
