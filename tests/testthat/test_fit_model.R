@@ -10,6 +10,6 @@ test_that("data parameter is not missing", {
 })
 
 test_that("object of correct type returned by helper functions", {
-  model <- fit_glm(formula = am ~ mpg, data = mtcars)
+  model <- .fit_glm(formula = am ~ mpg, data = mtcars)
   expect_is(model, "glm")
 })

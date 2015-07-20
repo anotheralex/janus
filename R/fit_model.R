@@ -9,7 +9,7 @@ fit <- function(formula, data, classifier) {
   if(missing(data)) {stop("missing data", call. = FALSE)}
 
   switch(EXPR = classifier,
-         "glm" = fit_glm(formula, data),
+         "glm" = .fit_glm(formula, data),
          "e1071" = fit_e1071(formula, data))
 }
 
@@ -17,7 +17,7 @@ fit <- function(formula, data, classifier) {
 #' @param formula, a model formula
 #' @param data, a data frame with a categorial output variable
 #'
-fit_glm <- function(formula, data) {
+.fit_glm <- function(formula, data) {
   stats::glm(formula = formula,
              data = data,
              family = "binomial")
