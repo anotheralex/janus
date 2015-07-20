@@ -3,6 +3,7 @@
 #'
 fit <- function(formula, data, classifier) {
   if(missing(formula)) {stop("missing formula", call. = FALSE)}
+  if(missing(data)) {stop("missing data", call. = FALSE)}
 
   switch(EXPR = classifier,
          "glm" = fit_glm(formula, data),
