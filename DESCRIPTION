@@ -10,3 +10,4 @@ BugReports: https://github.com/anotheralex/janus/issues
 License: MIT
 LazyData: TRUE
 Imports: stats
+Suggests: testthat
