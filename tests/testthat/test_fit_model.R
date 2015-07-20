@@ -1,5 +1,5 @@
 library(janus)
-context("fitting classifier")
+context("fit classifier")
 
 test_that("formula parameter is not missing", {
   expect_error(fit(data = mtcars, classifier = "glm"), "missing formula")
