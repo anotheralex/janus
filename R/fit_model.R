@@ -2,6 +2,8 @@
 #' @param classifier, the classifier to use. one of: glm, e1071
 #'
 fit <- function(formula, data, classifier) {
+  if(missing(formula)) {stop("missing formula", call. = FALSE)}
+
   switch(EXPR = classifier,
          "glm" = fit_glm(formula, data),
          "e1071" = fit_e1071(formula, data))
