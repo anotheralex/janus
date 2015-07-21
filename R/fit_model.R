@@ -28,8 +28,8 @@ fit <- function(formula, data, classifier, subset, ...) {
 
   # identify correct classifier to fit and call it
   switch(EXPR = classifier,
-         "glm" = .fit_glm(formula, data),
-         "e1071" = .fit_e1071(formula, data))
+         "glm" = .fit_glm(formula, data, subset),
+         "e1071" = .fit_e1071(formula, data, subset))
 }
 
 #' fit a logistic regression model using stats::glm
