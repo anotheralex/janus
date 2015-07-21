@@ -18,6 +18,7 @@ fit <- function(formula, data, classifier) {
     stop("data must be in a data.frame", call. = FALSE)
   }
 
+  # identify correct classifier to fit and call it
   switch(EXPR = classifier,
          "glm" = .fit_glm(formula, data),
          "e1071" = .fit_e1071(formula, data))
