@@ -1,12 +1,22 @@
 #' fit a model of the specified type
+#' currently only supports passing a formula object and data in a data.frame
+#'
 #' @param formula, a formula object
 #' @param data, a data frame
 #' @param classifier, a string indicating the classifier to use.
 #'    one of: glm, e1071
 #'
 fit <- function(formula, data, classifier) {
+
+  # check parameters
   if(missing(formula)) {stop("missing formula", call. = FALSE)}
+  if(!inherits(formula, "formula")) {
+    stop("object must be a formula", call. = FALSE)
+  }
   if(missing(data)) {stop("missing data", call. = FALSE)}
+  if(!inherits(data, "data.frame")) {
+    stop("data must be in a data.frame", call. = FALSE)
+  }
 
   switch(EXPR = classifier,
          "glm" = .fit_glm(formula, data),

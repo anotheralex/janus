@@ -1,11 +1,16 @@
 library(janus)
 context("fit classifier")
 
-test_that("formula parameter is not missing", {
+test_that("error is thrown if formula parameter is missing", {
   expect_error(fit(data = mtcars, classifier = "glm"), "missing formula")
 })
 
-test_that("data parameter is not missing", {
+test_that("error is thrown if formula parameter not a formula object", {
+  y <- matrix(rnorm(n = 10 * 5, mean = 0, sd = 1), nrow = 10, ncol = 5)
+  expect_error(fit(formula = y, data = mtcars, classifier = "glm"))
+})
+
+test_that("error is thrown if data parameter is missing", {
   expect_error(fit(formula = am ~ mpg, classifier = "glm"), "missing data")
 })
 
