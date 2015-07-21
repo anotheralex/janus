@@ -6,8 +6,9 @@
 #' @param classifier, a string indicating the classifier to use.
 #'    one of: glm, e1071
 #' @param subset, vector of indices for the subset to be used in fitting
+#' @param ..., additional arguments to be passed to stats::glm
 #'
-fit <- function(formula, data, classifier, subset) {
+fit <- function(formula, data, classifier, subset, ...) {
 
   # check that required parameters are present and of correct class
   if(missing(formula)) {stop("missing formula", call. = FALSE)}
