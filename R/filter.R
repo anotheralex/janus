@@ -12,5 +12,5 @@ filter <- function(formula, data, method) {
   if(missing(data)) stop("Missing data. Usage filter(formula, data, method)")
   if(missing(method)) stop("Missing data. Usage filter(formula, data, method)")
 
-  print("filtered features")
+  print("filtering...")
 }
