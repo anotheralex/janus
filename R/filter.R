@@ -1,6 +1,9 @@
 #' Feature selection through filtering
 #'
-#'
+#' @param formula, a formula object
+#' @param data, a data frame
+#' @param method, a string indicating the filter method to use.
+#'  Currently supported options: pearson, rank, cfs, chi2
 
 filter <- function(formula, data, method) {
 
