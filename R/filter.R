@@ -16,7 +16,8 @@ filter <- function(formula, data, method) {
     "pearson" = .filter_pearson(formula, data),
     "rank"    = .filter_rank(formula, data),
     "chisq"   = .filter_chisq(formula, data),
-    "cfs"     = .filter_cfs(formula, data)
+    "cfs"     = .filter_cfs(formula, data),
+    stop("Unknown method")
   )
 }
 
