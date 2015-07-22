@@ -8,9 +8,9 @@
 filter <- function(formula, data, method) {
 
   # test all arguments are supplied
-  if(missing(formula)) stop("Missing formula. Usage filter(formula, data, method)")
-  if(missing(data)) stop("Missing data. Usage filter(formula, data, method)")
-  if(missing(method)) stop("Missing data. Usage filter(formula, data, method)")
+  if(missing(formula)) stop(sQuote("formula"), " is missing. Usage: filter(formula, data, method)")
+  if(missing(data)) stop(sQuote("data"), " is missing. Usage: filter(formula, data, method)")
+  if(missing(method)) stop(sQuote("method"), " is missing. Usage: filter(formula, data, method)")
 
   switch(EXPR = method,
     "pearson" = .filter_pearson(formula, data),
