@@ -3,7 +3,7 @@
 #' @param formula, a formula object
 #' @param data, a data frame
 #' @param method, a string indicating the filter method to use.
-#'  Currently supported options: pearson, rank, cfs, chi2
+#'  Currently supported options: pearson, rank, cfs, chisq
 
 filter <- function(formula, data, method) {
 
@@ -12,5 +12,26 @@ filter <- function(formula, data, method) {
   if(missing(data)) stop("Missing data. Usage filter(formula, data, method)")
   if(missing(method)) stop("Missing data. Usage filter(formula, data, method)")
 
-  print("filtering...")
+  switch(EXPR = method,
+    "pearson" = .filter_pearson(formula, data),
+    "rank"    = .filter_rank(formula, data),
+    "chisq"   = .filter_chisq(formula, data),
+    "cfs"     = .filter_cfs(formula, data)
+  )
+}
+
+.filter_pearson <- function(formula, data) {
+  print("filtering with pearson...")
+}
+
+.filter_rank <- function(formula, data) {
+  print("filtering with rank...")
+}
+
+.filter_chisq <- function(formula, data) {
+  print("filtering with chisq...")
+}
+
+.filter_cfs <- function(formula, data) {
+  print("filtering with cfs...")
 }
