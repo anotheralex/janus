@@ -12,6 +12,7 @@ filter <- function(formula, data, method) {
   if(missing(data)) stop(sQuote("data"), " is missing. Usage: filter(formula, data, method)")
   if(missing(method)) stop(sQuote("method"), " is missing. Usage: filter(formula, data, method)")
 
+  # determine which filter method to use
   switch(EXPR = method,
     "pearson" = .filter_pearson(formula, data),
     "rank"    = .filter_rank(formula, data),
