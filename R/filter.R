@@ -4,7 +4,6 @@
 #' @param data, a data frame
 #' @param method, a string indicating the filter method to use.
 #'  Currently supported options: pearson, rank, cfs, chisq
-
 filter <- function(formula, data, method) {
 
   # test all arguments are supplied
@@ -22,21 +21,33 @@ filter <- function(formula, data, method) {
   )
 }
 
+#' Univariate filter using Pearson's correlation with output variable
+#' @param formula, a formula object
+#' @param data, a data frame
 .filter_pearson <- function(formula, data) {
   loadNamespace("FSelector")
   linear.correlation(formula, data)
 }
 
+#' Univariate filter using rank correlation with output variable
+#' @param formula, a formula object
+#' @param data, a data frame
 .filter_rank <- function(formula, data) {
   loadNamespace("FSelector")
   rank.correlation(formula, data)
 }
 
+#' Univariate filter using Chi-squared
+#' @param formula, a formula object
+#' @param data, a data frame
 .filter_chisq <- function(formula, data) {
   loadNamespace("FSelector")
   chi.squared(formula, data)
 }
 
+#' Filter features using the CFS algorithm
+#' @param formula, a formula object
+#' @param data, a data frame
 .filter_cfs <- function(formula, data) {
   loadNamespace("FSelector")
   cfs(formula, data)
