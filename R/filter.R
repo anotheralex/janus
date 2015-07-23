@@ -23,17 +23,21 @@ filter <- function(formula, data, method) {
 }
 
 .filter_pearson <- function(formula, data) {
-  print("filtering with pearson...")
+  loadNamespace("FSelector")
+  linear.correlation(formula, data)
 }
 
 .filter_rank <- function(formula, data) {
-  print("filtering with rank...")
+  loadNamespace("FSelector")
+  rank.correlation(formula, data)
 }
 
 .filter_chisq <- function(formula, data) {
-  print("filtering with chisq...")
+  loadNamespace("FSelector")
+  chi.squared(formula, data)
 }
 
 .filter_cfs <- function(formula, data) {
-  print("filtering with cfs...")
+  loadNamespace("FSelector")
+  cfs(formula, data)
 }
