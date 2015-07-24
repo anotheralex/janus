@@ -16,9 +16,9 @@ filter <- function(formula, data, method = c("pearson", "spearman", "chisq", "cf
   # determine which filter method to use
   switch(EXPR = method,
     "pearson" = .filter_pearson(formula, data),
-    "spearman"    = .filter_spearman(formula, data),
-    "chisq"   = .filter_chisq(formula, data),
-    "cfs"     = .filter_cfs(formula, data),
+    "spearman" = .filter_spearman(formula, data),
+    "chisq" = .filter_chisq(formula, data),
+    "cfs" = .filter_cfs(formula, data),
     stop("Unknown method")
   )
 }
