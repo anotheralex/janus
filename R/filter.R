@@ -14,7 +14,7 @@ filter <- function(formula, data, method) {
   # determine which filter method to use
   switch(EXPR = method,
     "pearson" = .filter_pearson(formula, data),
-    "rank"    = .filter_rank(formula, data),
+    "spearman"    = .filter_spearman(formula, data),
     "chisq"   = .filter_chisq(formula, data),
     "cfs"     = .filter_cfs(formula, data),
     stop("Unknown method")
@@ -32,7 +32,7 @@ filter <- function(formula, data, method) {
 #' Univariate filter using rank correlation with output variable
 #' @param formula, a formula object
 #' @param data, a data frame
-.filter_rank <- function(formula, data) {
+.filter_spearman <- function(formula, data) {
   loadNamespace("FSelector")
   rank.correlation(formula, data)
 }
