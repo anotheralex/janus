@@ -25,9 +25,9 @@ filter <- function(formula,
 
   # determine which filter method to use
   switch(EXPR = method,
-    "pearson" = .filter_pearson(formula, data),
-    "spearman" = .filter_spearman(formula, data),
-    "chisq" = .filter_chisq(formula, data),
+    "pearson" = .filter_pearson(formula, data, limit),
+    "spearman" = .filter_spearman(formula, data, limit),
+    "chisq" = .filter_chisq(formula, data, limit),
     "cfs" = .filter_cfs(formula, data),
     stop("Unknown method")
   )
@@ -36,9 +36,15 @@ filter <- function(formula,
 #' Univariate filter using Pearson's correlation with output variable
 #' @param formula, a formula object
 #' @param data, a data frame
-.filter_pearson <- function(formula, data) {
+.filter_pearson <- function(formula, data, limit) {
   result <- FSelector::linear.correlation(formula, data)
-  result[order(result, decreasing = TRUE), , drop = FALSE]
+  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
+
+  if(missing(limit)) {
+    result
+  } else {
+    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
+  }
 }
 
 #' Univariate filter using rank correlation with output variable
