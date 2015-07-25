@@ -40,7 +40,7 @@ filter <- function(formula,
   result <- FSelector::linear.correlation(formula, data)
   result <- result[order(result, decreasing = TRUE), , drop = FALSE]
 
-  if(missing(limit)) {
+  if(missing(limit) | limit > nrow(result)) {
     result
   } else {
     result[FSelector::cutoff.k(result, limit), , drop = FALSE]
