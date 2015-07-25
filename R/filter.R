@@ -45,15 +45,15 @@ filter <- function(formula,
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_spearman <- function(formula, data) {
-  FSelector::rank.correlation(formula, data)
-}
+  result <- FSelector::rank.correlation(formula, data)
+  result[order(result, decreasing = TRUE), , drop = FALSE]}
 
 #' Univariate filter using Chi-squared
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_chisq <- function(formula, data) {
-  FSelector::chi.squared(formula, data)
-}
+  result <- FSelector::chi.squared(formula, data)
+  result[order(result, decreasing = TRUE), , drop = FALSE]}
 
 #' Feature selection using the CFS algorithm
 #' @param formula, a formula object
