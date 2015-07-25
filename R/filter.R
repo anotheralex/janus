@@ -27,7 +27,6 @@ filter <- function(formula, data, method = c("pearson", "spearman", "chisq", "cf
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_pearson <- function(formula, data) {
-  #loadNamespace("FSelector")
   result <- FSelector::linear.correlation(formula, data)
   result[order(result, decreasing = TRUE), , drop = FALSE]
 }
@@ -36,22 +35,19 @@ filter <- function(formula, data, method = c("pearson", "spearman", "chisq", "cf
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_spearman <- function(formula, data) {
-  loadNamespace("FSelector")
-  rank.correlation(formula, data)
+  FSelector::rank.correlation(formula, data)
 }
 
 #' Univariate filter using Chi-squared
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_chisq <- function(formula, data) {
-  loadNamespace("FSelector")
-  chi.squared(formula, data)
+  FSelector::chi.squared(formula, data)
 }
 
 #' Feature selection using the CFS algorithm
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_cfs <- function(formula, data) {
-  loadNamespace("FSelector")
-  cfs(formula, data)
+  FSelector::cfs(formula, data)
 }
