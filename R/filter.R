@@ -2,13 +2,13 @@
 #'
 #' @param formula, a formula object
 #' @param data, a data frame
-#' @param ..., arguments to be passed on to called functions
 #' @param method, a string indicating the filter method to use
+#' @param ..., arguments to be passed on to called functions
 #' @param limit, an optional integer specifying the number of features to retain
 filter <- function(formula,
                    data,
-                   ...,
                    method = c("pearson", "spearman", "chisq", "cfs"),
+                   ...,
                    limit
                    ) {
 
