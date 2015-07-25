@@ -2,13 +2,23 @@
 #'
 #' @param formula, a formula object
 #' @param data, a data frame
+#' @param ..., arguments to be passed on to called functions
 #' @param method, a string indicating the filter method to use
-filter <- function(formula, data, method = c("pearson", "spearman", "chisq", "cfs")) {
+#' @param limit, an optional integer specifying the number of features to retain
+filter <- function(formula,
+                   data,
+                   ...,
+                   method = c("pearson", "spearman", "chisq", "cfs"),
+                   limit
+                   ) {
 
   # test all arguments are supplied
-  if(missing(formula)) stop(sQuote("formula"), " is missing. Usage: filter(formula, data, method)")
-  if(missing(data)) stop(sQuote("data"), " is missing. Usage: filter(formula, data, method)")
-  if(missing(method)) stop(sQuote("method"), " is missing. Usage: filter(formula, data, method)")
+  if(missing(formula)) stop(sQuote("formula"), " is missing")
+  if(missing(data)) stop(sQuote("data"), " is missing")
+  if(missing(method)) stop(sQuote("method"), " is missing")
+  if(!missing(limit)) {
+    if(!is.numeric(limit)) stop(sQuote("limit"), " must be an integer if present")
+  }
 
   # get full argument
   method <- match.arg(method)
