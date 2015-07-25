@@ -50,16 +50,30 @@ filter <- function(formula,
 #' Univariate filter using rank correlation with output variable
 #' @param formula, a formula object
 #' @param data, a data frame
-.filter_spearman <- function(formula, data) {
+.filter_spearman <- function(formula, data, limit) {
   result <- FSelector::rank.correlation(formula, data)
-  result[order(result, decreasing = TRUE), , drop = FALSE]}
+  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
+
+  if(missing(limit) | limit > nrow(result)) {
+    result
+  } else {
+    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
+  }
+}
 
 #' Univariate filter using Chi-squared
 #' @param formula, a formula object
 #' @param data, a data frame
-.filter_chisq <- function(formula, data) {
+.filter_chisq <- function(formula, data, limit) {
   result <- FSelector::chi.squared(formula, data)
-  result[order(result, decreasing = TRUE), , drop = FALSE]}
+  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
+
+  if(missing(limit) | limit > nrow(result)) {
+    result
+  } else {
+    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
+  }
+}
 
 #' Feature selection using the CFS algorithm
 #' @param formula, a formula object
