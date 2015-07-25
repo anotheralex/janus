@@ -27,8 +27,9 @@ filter <- function(formula, data, method = c("pearson", "spearman", "chisq", "cf
 #' @param formula, a formula object
 #' @param data, a data frame
 .filter_pearson <- function(formula, data) {
-  loadNamespace("FSelector")
-  linear.correlation(formula, data)
+  #loadNamespace("FSelector")
+  result <- FSelector::linear.correlation(formula, data)
+  result[order(result, decreasing = TRUE), , drop = FALSE]
 }
 
 #' Univariate filter using rank correlation with output variable
