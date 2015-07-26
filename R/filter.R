@@ -16,7 +16,7 @@ filter <- function(formula,
   if(missing(formula)) stop(sQuote("formula"), " is missing")
   if(missing(data)) stop(sQuote("data"), " is missing")
   if(missing(method)) stop(sQuote("method"), " is missing")
-  #if(!is.null(limit) & (limit < 1)) stop(sQuote("limit"), "must be greater than 0")
+  if(!is.null(limit) && (limit < 1)) stop(sQuote("limit"), " must be greater than 0")
 
   # get full argument
   method <- match.arg(method)
