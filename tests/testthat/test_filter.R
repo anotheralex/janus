@@ -13,3 +13,9 @@ test_that("error is thrown if argument is missing", {
   expect_error(filter(formula = y ~ ., method = "pearson"))
   expect_error(filter(formula = y ~ ., data = df))
 })
+
+test_that("setting the limit parameter shows a reduced set (if possible)", {
+  expect_equal(filter(y ~ ., data = df, method = "pearson"), 2)
+  expect_equal(filter(y ~ ., data = df, method = "pearson", limit = 1), 1)
+  expect_equal(filter(y ~ ., data = df, method = "pearson", limit = 3), 2)
+})
