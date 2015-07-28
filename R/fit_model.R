@@ -28,7 +28,7 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 
   # identify correct classifier to fit and call it
   switch(EXPR = classifier,
-         "e1071" = .fit_e1071(formula, data),
+         "e1071" = .fit_e1071(formula, data, ...),
          "glm" = .fit_glm(formula, data),
          "randomforest" = .fit_randomforest(formula, data)
   )
@@ -38,9 +38,12 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' fit a support vector machine classifier using e1071::svm
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
+#' @param kernel, kernel to be used for training model and making predictions
 #'
-.fit_e1071 <- function(formula, data) {
-  print("starting e1071...")
+.fit_e1071 <- function(formula, data, kernel = "linear") {
+  # TODO: check documentation for requirements to default to classification
+  # response variable needs to be a factor to give classification
+  e1071::svm(formula = formula, data = data, kernel = kernel)
 }
 
 #' fit a logistic regression model using stats::glm
