@@ -5,7 +5,7 @@
 #' @param data, a data frame
 #' @param classifier, a string indicating the classifier to use
 #' @param subset, vector of indices for the subset to be used in fitting
-#' @param ..., additional arguments to be passed to stats::glm
+#' @param ..., additional arguments to be passed to classifiers
 #'
 fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
                 subset, ...) {
