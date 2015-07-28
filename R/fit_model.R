@@ -58,5 +58,5 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' @param data, a data frame with a categorical output variable
 #'
 .fit_randomforest <- function(formula, data) {
-  print("starting randomforest...")
+  randomForest::randomForest(formula = formula, data = data)
 }
