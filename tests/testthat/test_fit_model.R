@@ -20,4 +20,7 @@ test_that("object of correct type returned by helper functions", {
 
   model <- .fit_randomforest(formula = am ~ mpg, data = mtcars)
   expect_is(model, "randomForest")
+
+  model <- .fit_e1071(formula = am ~ mpg, data = mtcars)
+  expect_is(model, "svm")
 })
