@@ -3,12 +3,12 @@
 #'
 #' @param formula, a formula object
 #' @param data, a data frame
-#' @param classifier, a string indicating the classifier to use.
-#'    one of: glm, e1071
+#' @param classifier, a string indicating the classifier to use
 #' @param subset, vector of indices for the subset to be used in fitting
 #' @param ..., additional arguments to be passed to stats::glm
 #'
-fit <- function(formula, data, classifier, subset, ...) {
+fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
+                subset, ...) {
 
   # check that required parameters are present and of correct class
   if(missing(formula)) {stop("missing formula", call. = FALSE)}
@@ -28,8 +28,19 @@ fit <- function(formula, data, classifier, subset, ...) {
 
   # identify correct classifier to fit and call it
   switch(EXPR = classifier,
+         "e1071" = .fit_e1071(formula, data),
          "glm" = .fit_glm(formula, data),
-         "e1071" = .fit_e1071(formula, data))
+         "randomforest" = .fit_randomforest(formula, data)
+  )
+
+}
+
+#' fit a support vector machine classifier using e1071::svm
+#' @param formula, a model formula
+#' @param data, a data frame with a categorical output variable
+#'
+.fit_e1071 <- function(formula, data) {
+  print("starting e1071...")
 }
 
 #' fit a logistic regression model using stats::glm
@@ -42,10 +53,10 @@ fit <- function(formula, data, classifier, subset, ...) {
              family = "binomial")
 }
 
-#' fit a support vector machine classifier using e1071::svm
+#' fit a support vector machine classifier using randomForest::randomForest
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
 #'
-.fit_e1071 <- function(formula, data) {
-  print("starting e1071...")
+.fit_randomforest <- function(formula, data) {
+  print("starting randomforest...")
 }
