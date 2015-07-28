@@ -11,5 +11,6 @@ License: MIT
 LazyData: TRUE
 Imports: stats,
     FSelector,
-    randomForest
+    randomForest,
+    e1071
 Suggests: testthat
