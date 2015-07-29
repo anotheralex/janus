@@ -24,3 +24,8 @@ test_that("object of correct type returned by helper functions", {
   model <- .fit_e1071(formula = am ~ mpg, data = mtcars)
   expect_is(model, "svm")
 })
+
+test_that("abbreviated classifier names work", {
+  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "g")
+  expect_is(model, "glm")
+})
