@@ -26,6 +26,9 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
     data <- data[subset, ]
   }
 
+  # get the full-length classifier name
+  classifier = match.arg(classifier)
+
   # identify correct classifier to fit and call it
   switch(EXPR = classifier,
          "e1071" = .fit_e1071(formula, data, ...),
