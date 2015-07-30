@@ -4,7 +4,7 @@ Title: Classification and Feature Selection
 Version: 0.1
 Date: 2015-07-17
 Authors@R: person("Alex", "Wollenschlaeger", , "alexw@panix.com", c("aut", "cre"))
-Description: A package that provides a consistent interface to popular classification and feature selection algorithms.
+Description: Wrapper for various classification and feature selection algorithms.
 URL: https://github.com/anotheralex/janus
 BugReports: https://github.com/anotheralex/janus/issues
 License: MIT
