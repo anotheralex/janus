@@ -54,9 +54,11 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' @param data, a data frame with a categorial output variable
 #'
 .fit_glm <- function(formula, data) {
-  stats::glm(formula = formula,
+  model <- stats::glm(formula = formula,
              data = data,
              family = "binomial")
+  class(model) <- c("janus", class(model))
+  model
 }
 
 #' fit a support vector machine classifier using randomForest::randomForest
