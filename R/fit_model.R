@@ -1,13 +1,17 @@
 #' fit a model of the specified type
 #' currently only supports passing a formula object and data in a data.frame
 #'
-#' @param formula, a formula object
-#' @param data, a data frame
-#' @param classifier, a string indicating the classifier to use
-#' @param subset, vector of indices for the subset to be used in fitting
-#' @param ..., additional arguments to be passed to classifiers
+#' @param formula a formula object
+#' @param data a data frame
+#' @param classifier a string indicating the classifier to use
+#' @param subset vector of indices for the subset to be used in fitting
+#' @param ... additional arguments to be passed to classifiers
+
 #' @return fitted model in object of class janus
 #'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
 fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
                 subset, ...) {
 

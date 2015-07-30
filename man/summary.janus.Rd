@@ -7,7 +7,7 @@
 \method{summary}{janus}(object)
 }
 \arguments{
-\item{object,}{an object of class janus}
+\item{object}{an object of class janus}
 }
 \value{
 None

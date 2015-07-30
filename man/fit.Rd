@@ -9,15 +9,15 @@ fit(formula, data, classifier = c("e1071", "glm", "randomforest"), subset,
   ...)
 }
 \arguments{
-\item{formula,}{a formula object}
+\item{formula}{a formula object}
 
-\item{data,}{a data frame}
+\item{data}{a data frame}
 
-\item{classifier,}{a string indicating the classifier to use}
+\item{classifier}{a string indicating the classifier to use}
 
-\item{subset,}{vector of indices for the subset to be used in fitting}
+\item{subset}{vector of indices for the subset to be used in fitting}
 
-\item{...,}{additional arguments to be passed to classifiers}
+\item{...}{additional arguments to be passed to classifiers}
 }
 \value{
 fitted model in object of class janus
@@ -25,5 +25,8 @@ fitted model in object of class janus
 \description{
 fit a model of the specified type
 currently only supports passing a formula object and data in a data.frame
+}
+\author{
+Alex Wollenschlaeger, \email{alexw@panix.com}
 }
 
