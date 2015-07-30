@@ -3,7 +3,7 @@
 #' Provides a text summary of a fitted janus model, with appropriate output
 #'    based on the underlying classifier.
 #'
-#' @param object, an object of class janus
+#' @param object an object of class janus
 #'
 #' @return None
 #'
