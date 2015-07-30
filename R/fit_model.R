@@ -46,7 +46,9 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 .fit_e1071 <- function(formula, data, kernel = "linear") {
   # TODO: check documentation for requirements to default to classification
   # response variable needs to be a factor to give classification
-  e1071::svm(formula = formula, data = data, kernel = kernel)
+  model <- e1071::svm(formula = formula, data = data, kernel = kernel)
+  class(model) <- c("janus", class(model))
+  model
 }
 
 #' fit a logistic regression model using stats::glm
@@ -66,5 +68,7 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' @param data, a data frame with a categorical output variable
 #'
 .fit_randomforest <- function(formula, data) {
-  randomForest::randomForest(formula = formula, data = data)
+  model <- randomForest::randomForest(formula = formula, data = data)
+  class(model) <- c("janus", class(model))
+  model
 }
