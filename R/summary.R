@@ -4,10 +4,22 @@ summary.janus <- function(object) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
 
   if(is(object, "glm")) {
-    print("janus-glm object")
-  } else if(is(object, "e1071")) {
-    print("janus-e1071 object")
+    .summary_glm(object)
+  } else if(is(object, "svm")) {
+    .summary_e1071(object)
   } else if(is(object, "randomForest")) {
-    print("janus-randomforest object")
+    .summary_randomforest(object)
   }
+}
+
+.summary_glm <- function(object) {
+  print("janus-glm object")
+}
+
+.summary_e1071 <- function(object) {
+  print("janus-e1071 object")
+}
+
+.summary_randomforest <- function(object) {
+  print("janus-randomforest object")
 }
