@@ -28,6 +28,20 @@ test_that("object of correct type returned by helper functions", {
   expect_is(model, "janus")
 })
 
+test_that("object of correct type returned by fit function", {
+  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "glm")
+  expect_is(model, "glm")
+  expect_is(model, "janus")
+
+  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "randomforest")
+  expect_is(model, "randomForest")
+  expect_is(model, "janus")
+
+  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "e1071")
+  expect_is(model, "svm")
+  expect_is(model, "janus")
+})
+
 test_that("abbreviated classifier names work", {
   model <- fit(formula = am ~ mpg, data = mtcars, classifier = "g")
   expect_is(model, "glm")
