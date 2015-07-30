@@ -1,4 +1,4 @@
-#' Summarize the output of janus model
+#' Summarize the output of a janus model
 #'
 summary.janus <- function(object) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
