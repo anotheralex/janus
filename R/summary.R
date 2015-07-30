@@ -1,7 +1,18 @@
 #' Summarize the output of a janus model
 #'
+#' Provides a text summary of a fitted janus model, with appropriate output
+#'    based on the underlying classifier.
+#'
 #' @param object, an object of class janus
 #'
+#' @return None
+#'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @examples
+#' summary(object)
+#'
+#' @export
 summary.janus <- function(object) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
 
