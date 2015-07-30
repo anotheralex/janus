@@ -17,6 +17,7 @@ test_that("error is thrown if data parameter is missing", {
 test_that("object of correct type returned by helper functions", {
   model <- .fit_glm(formula = am ~ mpg, data = mtcars)
   expect_is(model, "glm")
+  expect_is(model, "janus")
 
   model <- .fit_randomforest(formula = am ~ mpg, data = mtcars)
   expect_is(model, "randomForest")
