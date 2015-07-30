@@ -6,6 +6,7 @@
 #' @param classifier, a string indicating the classifier to use
 #' @param subset, vector of indices for the subset to be used in fitting
 #' @param ..., additional arguments to be passed to classifiers
+#' @return fitted model in object of class janus
 #'
 fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
                 subset, ...) {
@@ -42,6 +43,7 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
 #' @param kernel, kernel to be used for training model and making predictions
+#' @return fitted model in object of class janus
 #'
 .fit_e1071 <- function(formula, data, kernel = "linear") {
   # TODO: check documentation for requirements to default to classification
@@ -54,7 +56,8 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' fit a logistic regression model using stats::glm
 #' @param formula, a model formula
 #' @param data, a data frame with a categorial output variable
-#'
+#' @return fitted model in object of class janus
+#' #'
 .fit_glm <- function(formula, data) {
   model <- stats::glm(formula = formula,
              data = data,
@@ -66,6 +69,7 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' fit a support vector machine classifier using randomForest::randomForest
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
+#' @return fitted model in object of class janus
 #'
 .fit_randomforest <- function(formula, data) {
   model <- randomForest::randomForest(formula = formula, data = data)
