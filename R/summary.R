@@ -44,10 +44,11 @@ summary.janus <- function(object) {
   print("janus-e1071 object")
 }
 
+# TODO Caputure calling environment to access formula and data argument
 .summary_randomforest <- function(object) {
   cat("\nJanus Model Fitting Summary\n")
   cat("============================\n\n")
   cat("Classifier: randomForest\n")
   cat("Package: randomForest\n")
-  print("janus-randomforest object")
+  object
 }
