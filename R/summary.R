@@ -17,7 +17,8 @@ summary.janus <- function(object) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
 
   if(is(object, "glm")) {
-    .summary_glm(object)
+    sum_obj <- NextMethod("summary", object)
+    .summary_glm(sum_obj)
   } else if(is(object, "svm")) {
     .summary_e1071(object)
   } else if(is(object, "randomForest")) {
@@ -25,14 +26,28 @@ summary.janus <- function(object) {
   }
 }
 
+# Show a summary of the model fitting
+# Note: current version uses glm output object directly
 .summary_glm <- function(object) {
-  print("janus-glm object")
+  cat("\nJanus Model Fitting Summary\n")
+  cat("============================\n\n")
+  cat("Classifier: glm\n")
+  cat("Package: stats\n")
+  object
 }
 
 .summary_e1071 <- function(object) {
+  cat("\nJanus Model Fitting Summary\n")
+  cat("============================\n\n")
+  cat("Classifier: svm\n")
+  cat("Package: E1071\n")
   print("janus-e1071 object")
 }
 
 .summary_randomforest <- function(object) {
+  cat("\nJanus Model Fitting Summary\n")
+  cat("============================\n\n")
+  cat("Classifier: randomForest\n")
+  cat("Package: randomForest\n")
   print("janus-randomforest object")
 }
