@@ -30,7 +30,15 @@ predict.janus <- function(object, newdata, type = c("class", "probability")) {
 }
 
 .predict_glm <- function(object, newdata, type) {
-  #TODO
+  if(missing(newdata)) {
+    pred_probs <- predict.glm(object, type = "response")
+
+    if(type == "probability") {
+      pred_probs
+    } else {
+      "TODO: predict labels"
+    }
+  }
 }
 
 .predict_e1071 <- function(object, newdata, type) {
