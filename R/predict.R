@@ -29,6 +29,7 @@ predict.janus <- function(object, newdata, type = c("class", "probability")) {
   }
 }
 
+# predict class labels or probabilities for a glm model
 .predict_glm <- function(object, newdata, type) {
   if(missing(newdata)) {
     pred_probs <- predict.glm(object, type = "response")
