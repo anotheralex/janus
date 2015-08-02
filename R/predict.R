@@ -8,6 +8,9 @@
 #' @param newdata a dataframe that will be used to predict class labels
 #' @param type a string indicating the desired output, either class labels or
 #'    probabilities
+#' @param ... arguments to be passed on to underlying functions
+#' @param threshold probability threshold for binary classification,
+#'    set to 0.5 by default
 #'
 #' @return a data structure containining class labels or probabilities, as
 #'    determined by the type argument
@@ -15,13 +18,17 @@
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
-predict.janus <- function(object, newdata, type = c("class", "probability")) {
+predict.janus <- function(object,
+                          newdata,
+                          type = c("class", "probability"),
+                          ...,
+                          threshold = 0.5) {
   if(!inherits(object, "janus")) stop(sQuote("object"), "is not a janus object")
 
   type <- match.arg(type)
 
   if(inherits(object, "glm")) {
-    res <- .predict_glm(object, newdata, type)
+    res <- .predict_glm(object, newdata, type, threshold)
   } else if(inherits(object, "svm")) {
     res <- .predict_e1071(object, newdata, type)
   } else if(inherits(object, "randomForest")) {
@@ -30,14 +37,16 @@ predict.janus <- function(object, newdata, type = c("class", "probability")) {
 }
 
 # predict class labels or probabilities for a glm model
-.predict_glm <- function(object, newdata, type) {
+.predict_glm <- function(object, newdata, type, threshold) {
   if(missing(newdata)) {
     pred_probs <- predict.glm(object, type = "response")
 
     if(type == "probability") {
       pred_probs
-    } else {
-      "TODO: predict labels"
+    } else if(type == "class") {
+      pred_labels <- rep(0, length(pred_probs))
+      pred_labels[pred_probs > threshold] <- 1
+      pred_labels
     }
   }
 }
