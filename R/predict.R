@@ -10,7 +10,7 @@
 #'    probabilities
 #' @param ... arguments to be passed on to underlying functions
 #' @param threshold probability threshold for binary classification,
-#'    set to 0.5 by default
+#'    defaults to 0.5
 #'
 #' @return a data structure containining class labels or probabilities, as
 #'    determined by the type argument
