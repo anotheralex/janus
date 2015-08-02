@@ -19,11 +19,13 @@
 #'
 #' @export
 predict.janus <- function(object,
-                          newdata,
+                          newdata = NULL,
                           type = c("class", "probability"),
                           ...,
                           threshold = 0.5) {
-  if(!inherits(object, "janus")) stop(sQuote("object"), "is not a janus object")
+  if(!inherits(object, "janus")) {
+    stop(sQuote("object"), "is not a janus object")
+  }
 
   type <- match.arg(type)
 
@@ -34,17 +36,18 @@ predict.janus <- function(object,
   } else if(inherits(object, "randomForest")) {
     res <- .predict_randomforest(object, newdata, type)
   }
+  res
 }
 
 # predict class labels or probabilities for a glm model
 .predict_glm <- function(object,
                          newdata,
                          type,
-                         threshold = 0.5) {
+                         threshold) {
 
   # use glm::predict.glm to predict the probabilities associated with
   # either the training data or new data
-  if(missing(newdata)) {
+  if(is.null(newdata)) {
     # predict probabilities for the training data using glm::predict.glm
     pred_probs <- predict.glm(object, type = "response")
   } else {
