@@ -12,5 +12,5 @@ test_that("higher threshold leads to fewer 1 labels in 2-class problem", {
              classifier = "glm")
   low_thresh <- predict(mod, type = "class", threshold = 0.2)
   high_thresh <- predict(mod, type = "class", threshold = 0.8)
-  expect_true(sum(low_thresh) >= sum(high_thresh))
+  expect_true(sum(low_thresh) > sum(high_thresh))
 })
