@@ -12,7 +12,7 @@
 #' @param threshold probability threshold for binary classification,
 #'    defaults to 0.5
 #'
-#' @return a data structure containining class labels or probabilities, as
+#' @return a vector containining class labels or probabilities, as
 #'    determined by the type argument
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
