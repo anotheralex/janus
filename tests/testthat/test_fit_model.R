@@ -2,7 +2,7 @@ library(janus)
 context("fit classifier")
 
 test_that("error is thrown if formula parameter is missing", {
-  expect_error(fit(data = mtcars, classifier = "glm"), "missing formula")
+  expect_error(fit(data = mtcars, classifier = "glm"))
 })
 
 test_that("error is thrown if formula parameter not a formula object", {
@@ -11,7 +11,7 @@ test_that("error is thrown if formula parameter not a formula object", {
 })
 
 test_that("error is thrown if data parameter is missing", {
-  expect_error(fit(formula = am ~ mpg, classifier = "glm"), "missing data")
+  expect_error(fit(formula = am ~ mpg, classifier = "glm"))
 })
 
 test_that("object of correct type returned by helper functions", {
