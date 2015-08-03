@@ -18,8 +18,6 @@ expand_formula <- function(model) {
 #'
 #' @export
 expand_formula.janus <- function(model) {
-  if(!exists(mod$call$formula)) {
-    stop(sQuote("model"), " does not contain a valid formula object.")
-  }
-  eval(mod$call$formula)
+  expanded <- eval(model$call$formula)
+  expanded
 }
