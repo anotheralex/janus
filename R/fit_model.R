@@ -16,14 +16,14 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
                 subset, ...) {
 
   # check that required parameters are present and of correct class
-  if(missing(formula)) {stop("missing formula", call. = FALSE)}
+  if(missing(formula)) {stop(sQuote("formula"), " argument missing")}
   if(!inherits(formula, "formula")) {
-    stop("object must be a formula", call. = FALSE)
+    stop(sQuote("formula"), " is not a formula object")
   }
 
-  if(missing(data)) {stop("missing data", call. = FALSE)}
+  if(missing(data)) {stop(sQuote("data"), " argument missing")}
   if(!inherits(data, "data.frame")) {
-    stop("data must be in a data.frame", call. = FALSE)
+    stop(sQuote("data"), " must be a data.frame")
   }
 
   # create the data subset if required
