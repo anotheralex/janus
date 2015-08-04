@@ -46,13 +46,18 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #' fit a support vector machine classifier using e1071::svm
 #' @param formula, a model formula
 #' @param data, a data frame with a categorical output variable
-#' @param kernel, kernel to be used for training model and making predictions
+#' @param ... arguments to pass to called functions
 #' @return fitted model in object of class janus
 #'
-.fit_e1071 <- function(formula, data, kernel = "linear") {
+.fit_e1071 <- function(formula, data, ...) {
   # TODO: check documentation for requirements to default to classification
   # response variable needs to be a factor to give classification
-  model <- e1071::svm(formula = formula, data = data, kernel = kernel)
+  # note that default kernel is linear not radial as in e1071::svm
+  model <- e1071::svm(formula = formula,
+                      data = data,
+                      kernel = "linear",
+                      type = "C-classification",
+                      probability = TRUE)
   class(model) <- c("janus", class(model))
   model
 }
