@@ -41,7 +41,7 @@ summary.janus <- function(object) {
   cat("============================\n\n")
   cat("Classifier: svm\n")
   cat("Package: E1071\n")
-  print("janus-e1071 object")
+  object
 }
 
 # TODO Caputure calling environment to access formula and data argument
