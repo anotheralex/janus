@@ -64,8 +64,9 @@ predict.janus <- function(object,
 
 }
 
-.predict_e1071 <- function(object, newdata, type) {
-  #TODO
+.predict_e1071 <- function(object, newdata, type, ...) {
+  # TODO note that this requires a newdata object, and the old data is NOT
+  # passed through
 }
 
 # predict class labels or probabilities for a randomForest model
