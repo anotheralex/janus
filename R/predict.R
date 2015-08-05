@@ -80,8 +80,9 @@ predict.janus <- function(object,
 
   # randomForest does not allow direct access to its predict method
   # and it does not work with a janus object directly. Therefore, as a
-  # temporary workaround, we will temporarily change the class of the janus
-  # object
+  # temporary workaround, we will change the class of the janus
+  # object. Since R does makes a copy of the passed object, this does not affect
+  # the model object created by fit()
   # NOTE: THIS IS A KLUDGE AND A REAL FIX IS NEEDED
 
   # assign the same class that a randomForest object has
