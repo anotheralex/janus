@@ -97,7 +97,7 @@ predict.janus <- function(object,
                             newdata,
                             decision.values = TRUE,
                             probability = TRUE)
-      attr(pred_prob, "probabilities")
+      attr(pred_probs, "probabilities")
     } else if(type == "class") {
       pred_labels <- predict(object, newdata)
       pred_labels
