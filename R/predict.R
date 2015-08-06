@@ -88,6 +88,8 @@ predict.janus <- function(object,
     } else if(type == "class") {
       pred_labels <- predict(object, quote(object$call$data))
       pred_labels
+    } else {
+      stop("Unknown ", sQuote("type"))
     }
   } else {
     if(type == "probability") {
@@ -99,6 +101,8 @@ predict.janus <- function(object,
     } else if(type == "class") {
       pred_labels <- predict(object, newdata)
       pred_labels
+    } else {
+      stop("Unknown ", sQuote("type"))
     }
   }
 }
