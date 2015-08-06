@@ -66,8 +66,6 @@ predict.janus <- function(object,
 
 .predict_e1071 <- function(object, newdata, type, ...) {
 
-  #loadNamespace("e1071")
-
   # set the class of the object to that of e1071 svm object
   # required to gain access to the correct predict function
   class(object) <- c("svm.formula", "svm")
