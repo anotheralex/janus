@@ -74,6 +74,7 @@ predict.janus <- function(object,
   # either the training data or new data
   # note that there is a fair amount of code duplication here but it is
   # necessary to prevent the copying of potentially large data objects
+  # since R does not use pointers
   if(is.null(newdata)) {
 
     if(type == "probability") {
