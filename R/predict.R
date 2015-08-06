@@ -81,7 +81,7 @@ predict.janus <- function(object,
       # predict probabilities for the training data
       # need to identify the data from the fitted model object
       pred_probs <- predict(object,
-                            quote(object$call$data),
+                            object$call$data,
                             decision.values = TRUE,
                             probability = TRUE)
       attr(pred_probs, "probalities")
