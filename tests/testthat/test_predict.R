@@ -17,7 +17,7 @@ test_that("probability predictions same as that from predict.glm", {
   expect_equal(j_pred, g_pred)
 })
 
-test_that("higher threshold leads to fewer 1 labels in 2-class problem", {
+test_that("higher threshold leads to fewer 1 labels in 2-class glm problem", {
   mod <- fit(am ~ mpg, data = mtcars[complete.cases(mtcars), ],
              classifier = "glm")
   low_thresh <- predict(mod, type = "class", threshold = 0.2)
