@@ -40,7 +40,7 @@ summary.janus <- function(object) {
   cat("\nJanus Model Fitting Summary\n")
   cat("============================\n\n")
   cat("Classifier: svm\n")
-  cat("Package: E1071\n")
+  cat("Package: e1071\n")
   object
 }
 
