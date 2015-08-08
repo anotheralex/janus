@@ -17,6 +17,21 @@ test_that("probability predictions same as that from predict.glm", {
   expect_equal(j_pred, g_pred)
 })
 
+test_that("probability predictions same as that from predict.svm", {
+  library(e1071)
+  mt_complete <- mtcars[complete.cases(mtcars), ]
+  set.seed(1)
+  e_mod <- svm(am ~ ., data = mt_complete, kernel = "linear",
+             type = "C-classification", probability = TRUE)
+  e_pred_prob <- predict(e_mod, mt_complete, probability = TRUE)
+  e_pred <- attr(e_pred_prob, "probabilities")
+
+  set.seed(1)
+  j_mod <- fit(am ~ ., data = mt_complete, classifier = "e1071")
+  j_pred <- predict(j_mod, newdata = mt_complete, type = "probability")
+  expect_equal(j_pred, e_pred)
+})
+
 test_that("probability predictions same as that from predict.randomForest", {
   mt_complete <- mtcars[complete.cases(mtcars), ]
 
