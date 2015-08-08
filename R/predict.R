@@ -4,15 +4,17 @@
 #' the class labels or probabilities for each option are returned. Otherwise
 #' the label or probabilities for the training data are predicted.
 #'
-#' @param object a janus object containing a fitted model, as produced by fit()
+#' @param object a janus object containing a fitted model, as produced by fit
 #' @param newdata a dataframe that will be used to predict class labels
+#'    required for prediction of training samples using support vector machine
+#'    models implemented by the e1071 package
 #' @param type a string indicating the desired output, either class labels or
 #'    probabilities
 #' @param ... arguments to be passed on to underlying functions
 #' @param threshold probability threshold for binary classification,
 #'    defaults to 0.5
 #'
-#' @return a vector containining class labels or probabilities, as
+#' @return a vector or dataframe containining class labels or probabilities, as
 #'    determined by the type argument
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
