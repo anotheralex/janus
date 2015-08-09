@@ -110,6 +110,9 @@ fit <- function(formula,
 #'
 #' @return fitted model in object of class janus
 #'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
 .fit_glmnet <- function(formula, data, ...) {
   model <- glmnet::glmnet(formula = formula, data = data, ...)
   class(model) <- c("janus", class(model))
