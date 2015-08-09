@@ -12,8 +12,14 @@
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
-fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
-                subset, ...) {
+fit <- function(formula,
+                data,
+                classifier = c("e1071",
+                               "glm",
+                               "randomforest",
+                               "glmnet"),
+                subset,
+                ...) {
 
   # check that required parameters are present and of correct class
   if(missing(formula)) {stop(sQuote("formula"), " argument missing")}
@@ -38,7 +44,8 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
   switch(EXPR = classifier,
          "e1071" = .fit_e1071(formula, data, ...),
          "glm" = .fit_glm(formula, data),
-         "randomforest" = .fit_randomforest(formula, data)
+         "randomforest" = .fit_randomforest(formula, data),
+         "glmnet" = .fit_glmnet(formula, data, ...)
   )
 
 }
@@ -90,6 +97,21 @@ fit <- function(formula, data, classifier = c("e1071", "glm", "randomforest"),
 #'
 .fit_randomforest <- function(formula, data) {
   model <- randomForest::randomForest(formula = formula, data = data)
+  class(model) <- c("janus", class(model))
+  model
+}
+
+#' fit a binomial or multinomial logistic regression classifier using
+#'    glmnet::glmnet
+#'
+#' @param formula a model formula
+#' @param data a data frame with a categorical output variable
+#' @param ... additional parameters to pass to glmnet
+#'
+#' @return fitted model in object of class janus
+#'
+.fit_glmnet <- function(formula, data, ...) {
+  model <- glmnet::glmnet(formula = formula, data = data, ...)
   class(model) <- c("janus", class(model))
   model
 }
