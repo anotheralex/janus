@@ -12,5 +12,6 @@ LazyData: TRUE
 Imports: stats,
     FSelector,
     randomForest,
-    e1071
+    e1071,
+    glmnet
 Suggests: testthat
