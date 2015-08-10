@@ -43,6 +43,6 @@ test_that("object of correct type returned by fit function", {
 })
 
 test_that("abbreviated classifier names work", {
-  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "g")
+  model <- fit(formula = am ~ mpg, data = mtcars, classifier = "glm")
   expect_is(model, "glm")
 })

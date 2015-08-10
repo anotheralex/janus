@@ -1,5 +1,8 @@
+fit <- function(x, ...) {
+  UseMethod("fit")
+}
+
 #' fit a model of the specified type
-#' currently only supports passing a formula object and data in a data.frame
 #'
 #' @param formula a formula object
 #' @param data a data frame
@@ -12,7 +15,7 @@
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
-fit <- function(formula,
+fit.formula <- function(formula,
                 data,
                 classifier = c("e1071",
                                "glm",
