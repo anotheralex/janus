@@ -121,3 +121,45 @@ fit.formula <- function(formula,
   class(model) <- c("janus", class(model))
   model
 }
+
+#' fit a model of the specified type
+#'
+#' Uses a dataframe or matrix of predictor features to train a model using
+#' a vector (for binomial) or matrix or dataframe (for multinomial) regression.
+#' Currently only supports glmnet. Remaining classifiers use the formula method.
+#'
+#' @param x a dataframe or matrix containing the predictor variables
+#' @param y a vector or matrix of output variables
+#' @param classifier a string indicating the classifier to use
+#' @param subset vector of indices for the subset to be used in fitting
+#' @param ... additional arguments to be passed to classifiers
+
+#' @return fitted model in object of class janus
+#'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
+fit.default <- function(x,
+                        y,
+                        classifier = c("glmnet"),
+                        subset,
+                        ...) {
+
+  # check that required parameters are present and of correct class
+  if(missing(x)) {stop(sQuote("x"), " argument containing predictors missing")}
+  if(missing(y)) {stop(sQuote("y"), " argument containing response missing")}
+
+  # create the data subset if required
+  if(!missing(subset)) {
+    data <- data[subset, ]
+  }
+
+  # get the full-length classifier name
+  classifier = match.arg(classifier)
+
+  # identify correct classifier to fit and call it
+  switch(EXPR = classifier,
+         "glmnet" = .fit_glmnet(x, y, ...),
+         stop("classifier not supported; etry using formula interface")
+  )
+}
