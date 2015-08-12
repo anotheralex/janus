@@ -23,6 +23,8 @@ summary.janus <- function(object) {
     .summary_e1071(object)
   } else if(is(object, "randomForest")) {
     .summary_randomforest(object)
+  } else if(is(object, "glmnet")) {
+    .summary_glmnet(object)
   }
 }
 
@@ -50,5 +52,13 @@ summary.janus <- function(object) {
   cat("============================\n\n")
   cat("Classifier: randomForest\n")
   cat("Package: randomForest\n")
+  object
+}
+
+.summary_glmnet <- function(object) {
+  cat("\nJanus Model Fitting Summary\n")
+  cat("============================\n\n")
+  cat("Classifier: glmnet\n")
+  cat("Package: glmnet\n")
   object
 }
