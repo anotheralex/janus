@@ -130,6 +130,11 @@ fit.formula <- function(formula,
     message(sQuote("y"), " is not a factor and will be coerced")
   }
 
+  # check if y is a factor variable and if not warn that it will be coerced
+  if(!is.matrix(x)) {
+    message(sQuote("x"), " is not a matrix and will be coerced")
+  }
+
   # check how many levels the factor response variable has
   if(is.factor(y)) {
     levels <- nlevels(y)
@@ -144,16 +149,16 @@ fit.formula <- function(formula,
 
   # fit a bi- or multinomial model based on the number of levels in the
   # response variable
+  # cast x and y into matrix and factor variable, respectively
   if(levels == 2) {
-    model <- glmnet::glmnet(x, y, family = "binomial")
+    model <- glmnet::glmnet(as.matrix(x), as.factor(y), family = "binomial")
   } else if (levels > 2) {
-    model <- glmnet::glmnet(x, y, family = "multinomial",
+    model <- glmnet::glmnet(as.matrix(x), as.factor(y), family = "multinomial",
                             type.multinomial = "grouped")
   } else {
     stop("Unsupported number of levels in factor variable ", sQuote("y"))
   }
 
-  model <- glmnet::glmnet(x, y, ...)
   class(model) <- c("janus", class(model))
   model
 }
