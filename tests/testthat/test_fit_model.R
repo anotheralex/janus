@@ -40,6 +40,13 @@ test_that("object of correct type returned by fit function", {
   model <- fit(formula = am ~ mpg, data = mtcars, classifier = "e1071")
   expect_is(model, "svm")
   expect_is(model, "janus")
+
+  x <- mtcars[, c("mpg", "disp")]
+  y <- mtcars$am
+  model <- fit(x, y, classifier = "glmnet")
+  expect_is(model, "glmnet")
+  expect_is(model, "janus")
+
 })
 
 test_that("abbreviated classifier names work", {
