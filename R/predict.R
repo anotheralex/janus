@@ -151,19 +151,12 @@ predict.janus <- function(object,
 }
 
 # predict class labels or probabilities for a glmnet model
-.predict_glmnet <- function(object,
-                                  newdata,
-                                  type,
-                                  threshold) {
+.predict_glmnet <- function(object, newdata, type, threshold) {
 
   # use glmnet::glmnet, glmnet::cvfit and glmnet::predict
   # to predict probabilities or classes for trained model
 
-  # to ensure that glmnet::predict works as expected, we restore the class
-  # of the original object
-  # note that this is done on a copy of the object and not on the original
-  # model object
-  # assign the same class that a randomForest object has
-  class(object) <- c("randomForest.formula", "randomForest")
+  # TODO
+  # need to allow for using both cvfit and regular fit
 
 }
