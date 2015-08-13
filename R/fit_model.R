@@ -159,8 +159,9 @@ fit.formula <- function(formula,
     stop("Unsupported number of levels in factor variable ", sQuote("y"))
   }
 
-  class(model) <- c("janus", class(model))
-  model
+  res <- janus(model, package = "glmnet", classifier = "glmnet",
+               interface = "default")
+  res
 }
 
 #' fit a model of the specified type
