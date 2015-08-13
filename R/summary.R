@@ -58,7 +58,7 @@ summary.janus <- function(object) {
 .summary_glmnet <- function(object) {
   cat("\nJanus Model Fitting Summary\n")
   cat("============================\n\n")
-  cat("Classifier: glmnet\n")
-  cat("Package: glmnet\n")
-  object
+  cat("Package:", object$package, "\n")
+  cat("Classifier:", object$classifier, "\n")
+  object$model
 }
