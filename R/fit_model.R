@@ -130,7 +130,7 @@ fit.formula <- function(formula,
     message(sQuote("y"), " is not a factor and will be coerced")
   }
 
-  # check if y is a factor variable and if not warn that it will be coerced
+  # check if y is a matrix and if not warn that it will be coerced
   if(!is.matrix(x)) {
     message(sQuote("x"), " is not a matrix and will be coerced")
   }
