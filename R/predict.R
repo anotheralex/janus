@@ -37,6 +37,8 @@ predict.janus <- function(object,
     res <- .predict_e1071(object, newdata, type)
   } else if(inherits(object, "randomForest")) {
     res <- .predict_randomforest(object, newdata, type, threshold)
+  } else if(inherits(object, "glmnet")) {
+    res <- .predict_glmnet(object, newdata, type, threshold)
   }
   res
 }
