@@ -1,4 +1,4 @@
-#' constructor for janus object
+#' Constructor for janus object
 #'
 #' @param object a trained model object
 #' @param package character string indicating package origin of classifier
