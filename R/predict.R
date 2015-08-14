@@ -155,13 +155,13 @@ predict.janus <- function(object,
 
   # for glmnet, we need to ensure that the data is passed in explicitly
   if(is.null(newdata) || missing(newdata)) {
-    stop(sQuote("newdata"), "missing. Retry with new data object.")
+    stop(sQuote("newdata"), " missing. Retry with new data object.")
   }
 
   # require new data to be in a matrix
   # if it is not, coerce into one
   if(!is.matrix(newdata)) {
-    message(sQuote("newdata"), "not a matrix. Being coerced.")
+    message(sQuote("newdata"), " is not a matrix. Being coerced.")
   }
 
   # use glmnet::glmnet, glmnet::cvfit and glmnet::predict
