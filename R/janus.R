@@ -1,14 +1,18 @@
 #' Constructor for janus object
 #'
-#' @param object a trained model object
-#' @param package character string indicating package origin of classifier
-#' @param classifier character string indicating the classifier used to train
-#'    the model in object
-#' @param constructed logical indicating whether this object was created using
-#'    the janus constructor
+#' A constructor for creating a janus object. The principle argument is the
+#' trained model object, which is packaged inside a janus object along with
+#' metadata derived from the fitting process.
 #'
-#' @return a janus object containing the trained model object with additional
-#'    metadata
+#' @param object A trained model object.
+#' @param package Character string indicating package origin of classifier.
+#' @param classifier Character string indicating the classifier used to train
+#'    the model in object.
+#' @param constructed Logical indicating whether this object was created using
+#'    the janus constructor.
+#'
+#' @return A janus object containing the trained model object with additional
+#'    metadata.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
