@@ -4,6 +4,9 @@
 #' the class labels or probabilities for each option are returned. Otherwise
 #' the label or probabilities for the training data are predicted.
 #'
+#' Note that for some models, the new data must be explicitly provided. These
+#' are indicated by warning messages when run without a new data object.
+#'
 #' @param object a janus object containing a fitted model, as produced by fit
 #' @param newdata a dataframe that will be used to predict class labels
 #'    required for prediction of training samples using support vector machine
@@ -11,8 +14,8 @@
 #' @param type a string indicating the desired output, either class labels or
 #'    probabilities
 #' @param ... arguments to be passed on to underlying functions
-#' @param threshold probability threshold for binary classification,
-#'    defaults to 0.5
+#' @param threshold probability threshold for binary classification. Th default
+#'    value is 0.5
 #'
 #' @return a vector or dataframe containining class labels or probabilities, as
 #'    determined by the type argument
