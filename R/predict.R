@@ -186,6 +186,8 @@ predict.janus <- function(object,
     } else if(type == "class") {
       cat("not yet implemented\n")
     }
+  } else {
+    stop("Object is from an unsupported class.")
   }
 
 }
