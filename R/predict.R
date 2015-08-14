@@ -37,7 +37,7 @@ predict.janus <- function(object,
     res <- .predict_e1071(object, newdata, type)
   } else if(inherits(object, "randomForest")) {
     res <- .predict_randomforest(object, newdata, type, threshold)
-  } else if(inherits(object, "glmnet")) {
+  } else if(inherits(object, "glmnet") || inherits(object, "cv.glmnet")) {
     res <- .predict_glmnet(object, newdata, type, threshold)
   }
   res
@@ -153,10 +153,39 @@ predict.janus <- function(object,
 # predict class labels or probabilities for a glmnet model
 .predict_glmnet <- function(object, newdata, type, threshold) {
 
+  # for glmnet, we need to ensure that the data is passed in explicitly
+  if(is.null(newdata) || missing(newdata)) {
+    stop(sQuote("newdata"), "missing. Retry with new data object.")
+  }
+
+  # require new data to be in a matrix
+  # if it is not, coerce into one
+  if(!is.matrix(newdata)) {
+    message(sQuote("newdata"), "not a matrix. Being coerced.")
+  }
+
   # use glmnet::glmnet, glmnet::cvfit and glmnet::predict
   # to predict probabilities or classes for trained model
-
-  # TODO
-  # need to allow for using both cvfit and regular fit
+  if(inherits(object, "cv.glmnet")) {
+    if(type == "probability") {
+      pred_prob <- predict(object$model,
+                           newx = as.matrix(newdata),
+                           s = "lambda.min",
+                           type = "response")
+      pred_prob
+    } else if(type == "class") {
+      pred_class <- predict(object$model,
+                           newx = as.matrix(newdata),
+                           s = "lambda.min",
+                           type = "class")
+      pred_class
+    }
+  } else if(inherits(object, "glmnet")) {
+    if(type == "probability") {
+      cat("not yet implemented\n")
+    } else if(type == "class") {
+      cat("not yet implemented\n")
+    }
+  }
 
 }
