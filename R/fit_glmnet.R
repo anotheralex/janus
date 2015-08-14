@@ -5,15 +5,22 @@
 #' @param y a factorn vector containing response variables with two or more
 #'    levels
 #' @param ... additional parameters to pass to glmnet
+#' @param cvfit logical indicating whether to use cross validation to find best
+#'    value for model hyperparameters. Defaults to TRUE.
+#' @param type_measure string indicating the measure to use during cross
+#'    validation. Default measure is "deviance"
+#' @param folds the number of folds to use during cross validation. Default
+#'    number of folds is 10.
 #'
 #' @return fitted model in object of class janus
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
-fit_glmnet <- function(x, y, ...) {
+fit_glmnet <- function(x, y, ..., cvfit = TRUE, type_measure = "deviance",
+                       folds = 10) {
 
-  # check that necessary data has been supplied and in correct form
+  # check that necessary data has been supplied and is in correct form
   if(missing(x)) stop(sQuote("x"), " missing")
   if(missing(y)) stop(sQuote("y"), " missing")
   if(is.null(x)) stop(sQuote("x"), " cannot be null")
@@ -45,10 +52,31 @@ fit_glmnet <- function(x, y, ...) {
   # response variable
   # cast x and y into matrix and factor variable, respectively
   if(levels == 2) {
-    model <- glmnet::glmnet(as.matrix(x), as.factor(y), family = "binomial")
+    if(cvfit) {
+      model <- glmnet::cv.glmnet(as.matrix(x),
+                                 as.factor(y),
+                                 family = "binomial",
+                                 type.measure = type_measure,
+                                 nfolds = folds)
+    } else {
+      model <- glmnet::glmnet(as.matrix(x),
+                              as.factor(y),
+                              family = "binomial")
+    }
   } else if (levels > 2) {
-    model <- glmnet::glmnet(as.matrix(x), as.factor(y), family = "multinomial",
-                            type.multinomial = "grouped")
+    if(cvfit) {
+      model <- glmnet::cv.glmnet(as.matrix(x),
+                                 as.factor(y),
+                                 family = "multinomial",
+                                 type.multinomial = "grouped",
+                                 type.measure = type_measure,
+                                 nfolds = folds)
+    } else {
+      model <- glmnet::glmnet(as.matrix(x),
+                              as.factor(y),
+                              family = "multinomial",
+                              type.multinomial = "grouped")
+    }
   } else {
     stop("Unsupported number of levels in factor variable ", sQuote("y"))
   }
