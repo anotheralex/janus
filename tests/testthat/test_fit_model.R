@@ -44,9 +44,8 @@ test_that("object of correct type returned by fit function", {
   x <- mtcars[, c("mpg", "disp")]
   y <- mtcars$am
   model <- fit(x, y, classifier = "glmnet")
-  expect_is(model, "glmnet")
+  expect_true(inherits(model, "cv.glmnet") || inherits(model, "glmnet"))
   expect_is(model, "janus")
-
 })
 
 test_that("abbreviated classifier names work", {
