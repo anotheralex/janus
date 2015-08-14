@@ -1,16 +1,34 @@
+#' Fit a classification model.
+#'
+#' Generic method for fitting a classification model.
+#'
+#' @param x Either a formula object or a database or matrix object.
+#'
+#' @return A fitted model in object of class janus.
+#'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
 fit <- function(x, ...) {
   UseMethod("fit")
 }
 
-#' fit a model of the specified type
+#' @describeIn fit Fit a classification model using a formula object.
 #'
-#' @param formula a formula object
-#' @param data a data frame
-#' @param classifier a string indicating the classifier to use
-#' @param subset vector of indices for the subset to be used in fitting
-#' @param ... additional arguments to be passed to classifiers
+#' @param formula A formula object.
+#' @param data A dataframe containing the predictor and response variables.
+#' @param classifier A string indicating the classifier to use. Available
+#'    options (and source package) include:
+#' \enumerate{
+#'   \item "glm": logistic regression (glm)
+#'   \item "randomForest": random forest (randomForest)
+#'   \item "e1071": support vector machine (e1071)
+#' }
+#'
+#' @param subset Vector of indices for the subset to be used in fitting.
+#' @param ... Additional arguments to be passed to classifiers.
 
-#' @return fitted model in object of class janus
+#' @return A fitted model in an object of class janus.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
@@ -52,19 +70,27 @@ fit.formula <- function(formula,
   )
 }
 
-#' fit a model of the specified type
+#' @describeIn fit Fit a classification model using separate predictor and
+#'    response variables.
 #'
 #' Uses a dataframe or matrix of predictor features to train a model using
 #' a vector (for binomial) or matrix or dataframe (for multinomial) regression.
-#' Currently only supports glmnet. Remaining classifiers use the formula method.
 #'
-#' @param x a dataframe or matrix containing the predictor variables
-#' @param y a vector or matrix of output variables
-#' @param classifier a string indicating the classifier to use
-#' @param subset vector of indices for the subset to be used in fitting
-#' @param ... additional arguments to be passed to classifiers
+#' @param x A dataframe or matrix containing the predictor variables.
+#' @param y A vector or matrix of output variables.
+#' @param classifier A string indicating the classifier to use. Available
+#'    options (and source package) include:
+#' \enumerate{
+#'   \item "glm": logistic regression (glm)
+#'   \item "glmnet": binomial or multinomial logistic regression (glmnet)
+#'   \item "randomForest": random forest (randomForest)
+#'   \item "e1071": support vector machine (e1071)
+#' }
+#'
+#' @param subset Vector of indices for the subset to be used in fitting.
+#' @param ... Additional arguments to be passed to classifiers.
 
-#' @return fitted model in object of class janus
+#' @return A fitted model in an object of class janus.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
