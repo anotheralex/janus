@@ -151,7 +151,7 @@ predict.janus <- function(object,
 }
 
 # predict class labels or probabilities for a glmnet model
-.predict_glmnet <- function(object, newdata, type, threshold) {
+.predict_glmnet <- function(object, newdata, type,  ..., threshold) {
 
   # for glmnet, we need to ensure that the data is passed in explicitly
   if(is.null(newdata) || missing(newdata)) {
@@ -182,12 +182,17 @@ predict.janus <- function(object,
     }
   } else if(inherits(object, "glmnet")) {
     if(type == "probability") {
-      cat("not yet implemented\n")
+      pred_prob <- predict(object$model,
+                           newx = as.matrix(newdata),
+                           type = "response")
+      pred_prob
     } else if(type == "class") {
-      cat("not yet implemented\n")
+      pred_class <- predict(object$model,
+                            newx = as.matrix(newdata),
+                            type = "class")
+      pred_class
     }
   } else {
     stop("Object is from an unsupported class.")
   }
-
 }
