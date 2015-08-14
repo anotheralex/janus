@@ -58,10 +58,14 @@ fit_glmnet <- function(x, y, ..., cvfit = TRUE, type_measure = "deviance",
                                  family = "binomial",
                                  type.measure = type_measure,
                                  nfolds = folds)
+      res <- janus(model, package = "glmnet", classifier = "cv.glmnet",
+                   interface = "default")
     } else {
       model <- glmnet::glmnet(as.matrix(x),
                               as.factor(y),
                               family = "binomial")
+      res <- janus(model, package = "glmnet", classifier = "glmnet",
+                   interface = "default")
     }
   } else if (levels > 2) {
     if(cvfit) {
@@ -71,17 +75,18 @@ fit_glmnet <- function(x, y, ..., cvfit = TRUE, type_measure = "deviance",
                                  type.multinomial = "grouped",
                                  type.measure = type_measure,
                                  nfolds = folds)
+      res <- janus(model, package = "glmnet", classifier = "cv.glmnet",
+                   interface = "default")
     } else {
       model <- glmnet::glmnet(as.matrix(x),
                               as.factor(y),
                               family = "multinomial",
                               type.multinomial = "grouped")
+      res <- janus(model, package = "glmnet", classifier = "glmnet",
+                   interface = "default")
     }
   } else {
     stop("Unsupported number of levels in factor variable ", sQuote("y"))
   }
-
-  res <- janus(model, package = "glmnet", classifier = "glmnet",
-               interface = "default")
   res
 }
