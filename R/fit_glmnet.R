@@ -1,18 +1,24 @@
-#' fit a binomial or multinomial logistic regression classifier using
-#'    glmnet::glmnet
+#' Fit a binomial or multinomial logistic regression classifier using
+#'    glmnet::glmnet.
 #'
-#' @param x a dataframe or matrix containing predictors
-#' @param y a factorn vector containing response variables with two or more
-#'    levels
-#' @param ... additional parameters to pass to glmnet
-#' @param cvfit logical indicating whether to use cross validation to find best
+#' @param x A dataframe or matrix containing predictors.
+#' @param y A vector containing response variables with two or more
+#'    levels.
+#' @param ... Additional parameters to pass to glmnet.
+#' @param cvfit Logical indicating whether to use cross validation to find best
 #'    value for model hyperparameters. Defaults to TRUE.
-#' @param type_measure string indicating the measure to use during cross
-#'    validation. Default measure is "deviance"
-#' @param folds the number of folds to use during cross validation. Default
+#' @param type_measure String indicating the measure to use during cross
+#'    validation. Default measure is "deviance". Alternatives include:
+#'    \enumerate{
+#'      \item "class": misclassification error rate
+#'      \item "auc": area under the curve, for two-class models only
+#'      \item "mse": mean squared error
+#'      \item "mae": mean absolute error
+#'    }
+#' @param folds The number of folds to use during cross validation. Default
 #'    number of folds is 10.
 #'
-#' @return fitted model in object of class janus
+#' @return A fitted model in object of class janus.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
