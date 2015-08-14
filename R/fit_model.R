@@ -201,7 +201,7 @@ fit.default <- function(x,
 
   # identify correct classifier to fit and call it
   switch(EXPR = classifier,
-         "glmnet" = .fit_glmnet(x, y, ...),
+         "glmnet" = fit_glmnet(x, y, ...),
          stop("classifier not supported; retry using formula interface")
   )
 }
