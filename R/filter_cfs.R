@@ -1,4 +1,4 @@
-#' Feature selection using CFS algorithm
+#' Feature selection using CFS algorithm.
 #'
 #' @param formula A formula object.
 #' @param data A dataframe containing predictor and response variables.
