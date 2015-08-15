@@ -1,4 +1,23 @@
-# predict class labels or probabilities for a glm model
+#' Predict response for glm model in janus object.
+#'
+#' Makes predictions for models trained using the glm classifier in the package
+#' stats.
+#'
+#' @param object A janus object containing a fitted glmnet or cv.glmnet model.
+#' @param newdata A dataframe that will be used to predict either probabilities
+#'   for each class or class labels.
+#' @param type A string indicating the desired output: either "class" for class
+#'   labels or "probabilities" for probabilities.
+#' @param ... Arguments to be passed on to underlying functions.
+#' @param threshold Probability threshold for binary classification. Th default
+#'   value is 0.5.
+#'
+#' @return A vector or dataframe containining class labels or probabilities, as
+#'   determined by the type argument.
+#'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
 predict_glm <- function(object,
                         newdata,
                         type,
@@ -20,5 +39,4 @@ predict_glm <- function(object,
     pred_labels[pred_probs > threshold] <- 1
     pred_labels
   }
-
 }
