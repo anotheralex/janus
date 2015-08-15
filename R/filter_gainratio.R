@@ -1,5 +1,8 @@
 #' Univariate filter using the information gain ratio.
 #'
+#' Uses the information gain ratio for feature selection, as implemented in the
+#' FSelector package, to select important features.
+#'
 #' @param formula A formula object.
 #' @param data A dataframe containing predictor and response variables.
 #' @param limit Optional integer specifying the number of features to retain.
