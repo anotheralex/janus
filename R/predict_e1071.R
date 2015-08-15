@@ -1,3 +1,23 @@
+#' Predict response for svm model in janus object.
+#'
+#' Makes predictions for models trained using the svm classifier in the package
+#' e1071.
+#'
+#' @param object A janus object containing a fitted glmnet or cv.glmnet model.
+#' @param newdata A dataframe that will be used to predict either probabilities
+#'   for each class or class labels.
+#' @param type A string indicating the desired output: either "class" for class
+#'   labels or "probabilities" for probabilities.
+#' @param ... Arguments to be passed on to underlying functions.
+#' @param threshold Probability threshold for binary classification. Th default
+#'   value is 0.5.
+#'
+#' @return A vector or dataframe containining class labels or probabilities, as
+#'   determined by the type argument.
+#'
+#' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
+#'
+#' @export
 predict_e1071 <- function(object, newdata, type, ...) {
 
   # set the class of the object to that of e1071 svm object
