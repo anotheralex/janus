@@ -1,5 +1,8 @@
 #' Feature selection using CFS algorithm.
 #'
+#' Uses the correlation-based feature selection algorithm as implemented in the
+#' FSelector package to select important features.
+#'
 #' @param formula A formula object.
 #' @param data A dataframe containing predictor and response variables.
 #'
