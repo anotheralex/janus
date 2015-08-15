@@ -31,89 +31,12 @@ filter <- function(formula,
 
   # determine which filter method to use
   switch(EXPR = method,
-    "pearson" = .filter_pearson(formula, data, limit),
-    "spearman" = .filter_spearman(formula, data, limit),
-    "chisq" = .filter_chisq(formula, data, limit),
-    "infogain" = .filter_infogain(formula, data, limit),
-    "gainratio" = .filter_gainratio(formula, data, limit),
-    "cfs" = .filter_cfs(formula, data),
+    "pearson" = filter_pearson(formula, data, limit),
+    "spearman" = filter_spearman(formula, data, limit),
+    "chisq" = filter_chisq(formula, data, limit),
+    "infogain" = filter_infogain(formula, data, limit),
+    "gainratio" = filter_gainratio(formula, data, limit),
+    "cfs" = filter_cfs(formula, data),
     stop("Unknown method")
   )
-}
-
-#' Univariate filter using Pearson's correlation with output variable
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_pearson <- function(formula, data, limit) {
-  result <- FSelector::linear.correlation(formula, data)
-  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
-
-  if(is.null(limit)) {
-    result
-  } else {
-    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
-  }
-}
-
-#' Univariate filter using Spearman's rank correlation with output variable
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_spearman <- function(formula, data, limit) {
-  result <- FSelector::rank.correlation(formula, data)
-  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
-
-  if(is.null(limit)) {
-    result
-  } else {
-    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
-  }
-}
-
-#' Univariate filter using Chi-squared
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_chisq <- function(formula, data, limit) {
-  result <- FSelector::chi.squared(formula, data)
-  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
-
-  if(is.null(limit)) {
-    result
-  } else {
-    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
-  }
-}
-
-#' Univariate filter using Information Gain
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_infogain <- function(formula, data, limit) {
-  result <- FSelector::information.gain(formula, data)
-  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
-
-  if(is.null(limit)) {
-    result
-  } else {
-    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
-  }
-}
-
-#' Univariate filter using the Information Gain Ratio
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_gainratio <- function(formula, data, limit) {
-  result <- FSelector::gain.ratio(formula, data)
-  result <- result[order(result, decreasing = TRUE), , drop = FALSE]
-
-  if(is.null(limit)) {
-    result
-  } else {
-    result[FSelector::cutoff.k(result, limit), , drop = FALSE]
-  }
-}
-
-#' Feature selection using the CFS algorithm
-#' @param formula, a formula object
-#' @param data, a data frame
-.filter_cfs <- function(formula, data) {
-  FSelector::cfs(formula, data)
 }
