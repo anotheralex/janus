@@ -1,12 +1,21 @@
 #' Feature selection through filtering
 #'
-#' @param formula a formula object
-#' @param data a data frame
-#' @param method a string indicating the filter method to use
-#' @param ... arguments to be passed on to called functions
-#' @param limit an optional integer specifying the number of features to retain
+#' @param formula A formula object.
+#' @param data A dataframe containing predictor and response variables.
+#' @param method A string indicating the filter method to use. One of:
+#' \enumerate{
+#'   \item "cfs": correlation-based feature selector (from FSelector package)
+#'   \item "chisq": $$\chi^2$$ (FSelector)
+#'   \item "gainratio": information gain ratio (FSelector)
+#'   \item "infogain": information gain (FSelector)
+#'   \item "pearson": Pearson correlation (FSelector)
+#'   \item "spearman": Spearman rank-based correlation (FSelector)
+#' }
+#' @param ... Arguments to be passed on to called functions.
+#' @param limit Optional integer specifying the number of features to retain.
 #'
-#' @return a vector of feature importance values
+#' @return A vector of feature importance values or predictor identifiers,
+#'   depending on the chosen method.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
