@@ -9,7 +9,7 @@
 \arguments{
 \item{object}{An object of class janus}
 
-\item{object}{Additional parameters to be passed on.}
+\item{...}{Additional parameters to be passed on.}
 }
 \value{
 None
