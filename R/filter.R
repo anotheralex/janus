@@ -3,7 +3,7 @@
 #' @param formula A formula object.
 #' @param data A dataframe containing predictor and response variables.
 #' @param method A string indicating the filter method to use. One of:
-#' \enumerate{
+#' \itemize{
 #'   \item "cfs": correlation-based feature selector (from FSelector package)
 #'   \item "chisq": chi-square (FSelector)
 #'   \item "gainratio": information gain ratio (FSelector)

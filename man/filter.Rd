@@ -13,7 +13,7 @@ filter(formula, data, method = c("pearson", "spearman", "chisq", "infogain",
 \item{data}{A dataframe containing predictor and response variables.}
 
 \item{method}{A string indicating the filter method to use. One of:
-\enumerate{
+\itemize{
   \item "cfs": correlation-based feature selector (from FSelector package)
   \item "chisq": chi-square (FSelector)
   \item "gainratio": information gain ratio (FSelector)
