@@ -15,12 +15,15 @@ janus(object, package, classifier, interface = c("formula", "default"),
 \item{classifier}{Character string indicating the classifier used to train
 the model in object.}
 
+\item{interface}{String indicating whether the object was created using the
+formula method interface or the default interface.}
+
 \item{constructed}{Logical indicating whether this object was created using
-   the janus constructor.}
+  the janus constructor.}
 }
 \value{
 A janus object containing the trained model object with additional
-   metadata.
+  metadata.
 }
 \description{
 A constructor for creating a janus object. The principle argument is the

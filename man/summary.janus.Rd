@@ -16,9 +16,6 @@ None
 Provides a text summary of a fitted janus model, with appropriate output
    based on the underlying classifier.
 }
-\examples{
-summary(object)
-}
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }

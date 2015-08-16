@@ -16,9 +16,6 @@ for each class or class labels.}
 labels or "probabilities" for probabilities.}
 
 \item{...}{Arguments to be passed on to underlying functions.}
-
-\item{threshold}{Probability threshold for binary classification. Th default
-  value is 0.5.}
 }
 \value{
 A vector or dataframe containining class labels or probabilities, as
