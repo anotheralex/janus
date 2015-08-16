@@ -17,7 +17,7 @@ filter_chisq(formula, data, limit)
 A vector of feature importance values.
 }
 \description{
-Uses $$\chi^2$$ for feature selection, as implemented in the FSelector
+Uses chi-square for feature selection, as implemented in the FSelector
 package, to select important features.
 }
 \author{

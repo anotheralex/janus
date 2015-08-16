@@ -1,6 +1,6 @@
 #' Univariate filter using chi-squared.
 #'
-#' Uses $$\chi^2$$ for feature selection, as implemented in the FSelector
+#' Uses chi-square for feature selection, as implemented in the FSelector
 #' package, to select important features.
 #'
 #' @param formula A formula object.

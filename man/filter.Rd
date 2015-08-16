@@ -15,7 +15,7 @@ filter(formula, data, method = c("pearson", "spearman", "chisq", "infogain",
 \item{method}{A string indicating the filter method to use. One of:
 \enumerate{
   \item "cfs": correlation-based feature selector (from FSelector package)
-  \item "chisq": $$\chi^2$$ (FSelector)
+  \item "chisq": chi-square (FSelector)
   \item "gainratio": information gain ratio (FSelector)
   \item "infogain": information gain (FSelector)
   \item "pearson": Pearson correlation (FSelector)
