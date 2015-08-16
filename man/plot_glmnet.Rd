@@ -4,13 +4,15 @@
 \alias{plot_glmnet}
 \title{Plot a janus object derived from a glmnet or cv.glmnet object}
 \usage{
-plot_glmnet(object)
+plot_glmnet(object, ...)
 }
 \arguments{
-\item{object}{a janus object containing a fitted model}
+\item{object}{A janus object containing a fitted model.}
+
+\item{...}{Additional plotting parameters.}
 }
 \value{
-nothing
+Nothing
 }
 \description{
 Plot a janus object derived from a glmnet or cv.glmnet object
