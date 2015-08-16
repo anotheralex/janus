@@ -7,12 +7,14 @@
 #' @param object A trained model object.
 #' @param package Character string indicating package origin of classifier.
 #' @param classifier Character string indicating the classifier used to train
-#'    the model in object.
+#'   the model in object.
+#' @param interface String indicating whether the object was created using the
+#'   formula method interface or the default interface.
 #' @param constructed Logical indicating whether this object was created using
-#'    the janus constructor.
+#'   the janus constructor.
 #'
 #' @return A janus object containing the trained model object with additional
-#'    metadata.
+#'   metadata.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
