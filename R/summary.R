@@ -4,7 +4,7 @@
 #'    based on the underlying classifier.
 #'
 #' @param object An object of class janus
-#' @param object Additional parameters to be passed on.
+#' @param ... Additional parameters to be passed on.
 #'
 #' @return None
 #'
