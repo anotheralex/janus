@@ -2,11 +2,20 @@
 % Please edit documentation in R/plot.R
 \name{plot.janus}
 \alias{plot.janus}
-\title{Plot janus model objects}
+\title{Plot a janus object.}
 \usage{
 \method{plot}{janus}(object)
 }
+\arguments{
+\item{object}{A janus object containing a fitted model.}
+}
+\value{
+Nothing
+}
 \description{
-Plot janus model objects
+Plot a janus object.
+}
+\author{
+Alex Wollenschlaeger, \email{alexw@panix.com}
 }
 

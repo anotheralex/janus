@@ -4,24 +4,36 @@
 \alias{predict.janus}
 \title{Predict probabilities or class labels for a fitted janus model}
 \usage{
-\method{predict}{janus}(object, newdata, type = c("class", "probability"))
+\method{predict}{janus}(object, newdata = NULL, type = c("class",
+  "probability"), ..., threshold = 0.5)
 }
 \arguments{
-\item{object}{a janus object containing a fitted model, as produced by fit()}
+\item{object}{a janus object containing a fitted model, as produced by fit}
 
-\item{newdata}{a dataframe that will be used to predict class labels}
+\item{newdata}{a dataframe that will be used to predict class labels
+required for prediction of training samples using support vector machine
+models implemented by the e1071 package}
 
 \item{type}{a string indicating the desired output, either class labels or
-   probabilities}
+probabilities}
+
+\item{...}{arguments to be passed on to underlying functions}
+
+\item{threshold}{probability threshold for binary classification. Th default
+   value is 0.5}
 }
 \value{
-a data structure containining class labels or probabilities, as
+a vector or dataframe containining class labels or probabilities, as
    determined by the type argument
 }
 \description{
 Uses a janus model object to predict class labels. If new data is supplied,
 the class labels or probabilities for each option are returned. Otherwise
 the label or probabilities for the training data are predicted.
+}
+\details{
+Note that for some models, the new data must be explicitly provided. These
+are indicated by warning messages when run without a new data object.
 }
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}

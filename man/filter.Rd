@@ -8,17 +8,32 @@ filter(formula, data, method = c("pearson", "spearman", "chisq", "infogain",
   "gainratio", "cfs"), ..., limit = NULL)
 }
 \arguments{
-\item{formula,}{a formula object}
+\item{formula}{A formula object.}
 
-\item{data,}{a data frame}
+\item{data}{A dataframe containing predictor and response variables.}
 
-\item{method,}{a string indicating the filter method to use}
+\item{method}{A string indicating the filter method to use. One of:
+\enumerate{
+  \item "cfs": correlation-based feature selector (from FSelector package)
+  \item "chisq": $$\chi^2$$ (FSelector)
+  \item "gainratio": information gain ratio (FSelector)
+  \item "infogain": information gain (FSelector)
+  \item "pearson": Pearson correlation (FSelector)
+  \item "spearman": Spearman rank-based correlation (FSelector)
+}}
 
-\item{...,}{arguments to be passed on to called functions}
+\item{...}{Arguments to be passed on to called functions.}
 
-\item{limit,}{an optional integer specifying the number of features to retain}
+\item{limit}{Optional integer specifying the number of features to retain.}
+}
+\value{
+A vector of feature importance values or predictor identifiers,
+  depending on the chosen method.
 }
 \description{
 Feature selection through filtering
+}
+\author{
+Alex Wollenschlaeger, \email{alexw@panix.com}
 }
 

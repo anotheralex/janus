@@ -2,31 +2,78 @@
 % Please edit documentation in R/fit_model.R
 \name{fit}
 \alias{fit}
-\title{fit a model of the specified type
-currently only supports passing a formula object and data in a data.frame}
+\alias{fit.default}
+\alias{fit.formula}
+\title{Fit a classification model.}
 \usage{
-fit(formula, data, classifier = c("e1071", "glm", "randomforest"), subset,
-  ...)
+fit(x, ...)
+
+\method{fit}{formula}(formula, data, classifier = c("e1071", "glm",
+  "randomforest", "glmnet"), subset, ...)
+
+\method{fit}{default}(x, y, classifier = c("glmnet"), subset, ...)
 }
 \arguments{
-\item{formula}{a formula object}
+\item{x}{Either a formula object or a database or matrix object.}
 
-\item{data}{a data frame}
+\item{...}{Additional arguments to be passed to classifiers.}
 
-\item{classifier}{a string indicating the classifier to use}
+\item{formula}{A formula object.}
 
-\item{subset}{vector of indices for the subset to be used in fitting}
+\item{data}{A dataframe containing the predictor and response variables.}
 
-\item{...}{additional arguments to be passed to classifiers}
+\item{classifier}{A string indicating the classifier to use. Available
+   options (and source package) include:
+\enumerate{
+  \item "glm": logistic regression (glm)
+  \item "randomForest": random forest (randomForest)
+  \item "e1071": support vector machine (e1071)
+}}
+
+\item{subset}{Vector of indices for the subset to be used in fitting.}
+
+\item{y}{A vector or matrix of output variables.}
+
+\item{x}{A dataframe or matrix containing the predictor variables.}
+
+\item{classifier}{A string indicating the classifier to use. Available
+   options (and source package) include:
+\enumerate{
+  \item "glm": logistic regression (glm)
+  \item "glmnet": binomial or multinomial logistic regression (glmnet)
+  \item "randomForest": random forest (randomForest)
+  \item "e1071": support vector machine (e1071)
+}}
+
+\item{subset}{Vector of indices for the subset to be used in fitting.}
+
+\item{...}{Additional arguments to be passed to classifiers.}
 }
 \value{
-fitted model in object of class janus
+A fitted model in object of class janus.
+
+A fitted model in an object of class janus.
+
+A fitted model in an object of class janus.
 }
 \description{
-fit a model of the specified type
-currently only supports passing a formula object and data in a data.frame
+Generic method for fitting a classification model.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{formula}: Fit a classification model using a formula object.
+
+\item \code{default}: Fit a classification model using separate predictor and
+   response variables.
+
+Uses a dataframe or matrix of predictor features to train a model using
+a vector (for binomial) or matrix or dataframe (for multinomial) regression.
+}}
 \author{
+Alex Wollenschlaeger, \email{alexw@panix.com}
+
+Alex Wollenschlaeger, \email{alexw@panix.com}
+
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }
 
