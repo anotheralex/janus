@@ -9,8 +9,6 @@
 #' @param type A string indicating the desired output: either "class" for class
 #'   labels or "probabilities" for probabilities.
 #' @param ... Arguments to be passed on to underlying functions.
-#' @param threshold Probability threshold for binary classification. Th default
-#'   value is 0.5.
 #'
 #' @return A vector or dataframe containining class labels or probabilities, as
 #'   determined by the type argument.
