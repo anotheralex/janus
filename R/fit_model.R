@@ -3,6 +3,7 @@
 #' Generic method for fitting a classification model.
 #'
 #' @param x Either a formula object or a database or matrix object.
+#' @param ... Additional parameters to be passed on.
 #'
 #' @return A fitted model in object of class janus.
 #'
@@ -13,7 +14,7 @@ fit <- function(x, ...) {
   UseMethod("fit")
 }
 
-#' @describeIn fit Fit a classification model using a formula object.
+#' Fit a classification model using a formula object.
 #'
 #' @param formula A formula object.
 #' @param data A dataframe containing the predictor and response variables.
@@ -70,7 +71,7 @@ fit.formula <- function(formula,
   )
 }
 
-#' @describeIn fit Fit a classification model using separate predictor and
+#' Fit a classification model using separate predictor and
 #'    response variables.
 #'
 #' Uses a dataframe or matrix of predictor features to train a model using
