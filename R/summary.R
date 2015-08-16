@@ -9,9 +9,6 @@
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
-#' @examples
-#' summary(object)
-#'
 #' @export
 summary.janus <- function(object) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
