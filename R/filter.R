@@ -1,4 +1,8 @@
-#' Feature selection through filtering
+#' Feature selection through filtering.
+#'
+#' Allows choosing from a range of algorithms for univariate feature selection.
+#' Also allows use of the CFS algorithm for choosing the most important feature
+#' in a set of predictor variables.
 #'
 #' @param formula A formula object.
 #' @param data A dataframe containing predictor and response variables.
@@ -16,6 +20,23 @@
 #'
 #' @return A vector of feature importance values or predictor identifiers,
 #'   depending on the chosen method.
+#'
+#' @examples
+#' # set up an example dataframe
+#' set.seed(1)
+#' y <- sample(0:1, 100, replace = TRUE)
+#' x1 <- rnorm(100)
+#' x2 <- sample(0:1, 100, replace = TRUE)
+#' df <- data.frame(y, x1, x2)
+#'
+#' # use Pearson's correlation for filtering
+#' filter(y ~ ., df, method = "pearson")
+#'
+#' # use Spearman's rank correlation and limit the number of returned variables
+#' filter(y ~ ., df, method = "spearman", limit = 1)
+#'
+#' # use the CFS algorithm to return the most important predictor
+#' filter(y ~ ., df, method = "cfs")
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
