@@ -4,10 +4,10 @@
 \alias{plot.janus}
 \title{Plot a janus object.}
 \usage{
-\method{plot}{janus}(object, ...)
+\method{plot}{janus}(x, ...)
 }
 \arguments{
-\item{object}{A janus object containing a fitted model.}
+\item{x}{A janus object containing a fitted model.}
 
 \item{...}{Additional plotting parameters.}
 }

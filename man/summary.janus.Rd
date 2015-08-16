@@ -4,10 +4,12 @@
 \alias{summary.janus}
 \title{Summarize the output of a janus model}
 \usage{
-\method{summary}{janus}(object)
+\method{summary}{janus}(object, ...)
 }
 \arguments{
-\item{object}{an object of class janus}
+\item{object}{An object of class janus}
+
+\item{object}{Additional parameters to be passed on.}
 }
 \value{
 None
