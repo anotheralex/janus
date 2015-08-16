@@ -3,14 +3,15 @@
 #' Provides a text summary of a fitted janus model, with appropriate output
 #'    based on the underlying classifier.
 #'
-#' @param object an object of class janus
+#' @param object An object of class janus
+#' @param object Additional parameters to be passed on.
 #'
 #' @return None
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
-summary.janus <- function(object) {
+summary.janus <- function(object, ...) {
   if(!is(object, "janus")) stop(sQuote("object"), "is not of class janus.")
 
   if(is(object, "glm")) {
