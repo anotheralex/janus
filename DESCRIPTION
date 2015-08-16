@@ -7,7 +7,7 @@ Authors@R: person("Alex", "Wollenschlaeger", , "alexw@panix.com", c("aut", "cre"
 Description: Wrapper for various classification and feature selection algorithms.
 URL: https://github.com/anotheralex/janus
 BugReports: https://github.com/anotheralex/janus/issues
-License: MIT
+License: MIT + file LICENSE
 LazyData: TRUE
 Imports: stats,
     FSelector,
