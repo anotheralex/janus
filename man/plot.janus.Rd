@@ -27,7 +27,7 @@ y <- mtcars[, 9]
 mod <- fit(x, y, classifier = "glmnet")
 
 # plot the model error measure against values for the penalty glmnet penalty
-# paramter
+# parameter
 plot(mod)
 }
 \author{
