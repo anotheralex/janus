@@ -20,6 +20,44 @@
 #' @return a vector or dataframe containining class labels or probabilities, as
 #'    determined by the type argument
 #'
+#' @examples
+#' # create a dataframe containing no missing values
+#' mt_complete <- mtcars[complete.cases(mtcars), ]
+#'
+#' # train a logistic regression model using glm
+#' mod <- fit(am ~ mpg, data = mt_complete, classifier = "glm")
+#'
+#' # predict the class labels for the training data
+#' predict(mod, type = "class")
+#'
+#' # create train and test datasets
+#' train_index <- sample(nrow(mt_complete), size = nrow(mt_complete)/2)
+#' train_df <- mt_complete[train_index, ]
+#' test_df <- mt_complete[-train_index, ]
+#'
+#' # train a randomforest classifier on the training data
+#' mod <- fit(as.factor(am) ~ ., data = train_df, classifier = "randomforest")
+#'
+#' # predict the class probabilities for the test data
+#' predict(mod, newdata = test_df, type = "probability")
+#'
+#' # predict the classes for the test data
+#' predict(mod, newdata = test_df, type = "class")
+#'
+#' # create predictor data matrix and response data vector
+#' x <- mtcars[, -9]
+#' y <- mtcars[, 9]
+#'
+#' # fit a regularlized cv.glmnet classifier, using cross-validation for
+#' # determining the optimal value for model hyperparameters
+#' mod <- fit(x, y, classifier = "glmnet")
+#'
+#' # predict the class probabilities for the training data
+#' predict(mod, newdata = x, type = "probability")
+#'
+#' # predict the class labels for the training data
+#' predict(mod, newdata = x, type = "class")
+#'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
