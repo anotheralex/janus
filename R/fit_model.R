@@ -7,6 +7,19 @@
 #'
 #' @return A fitted model in object of class janus.
 #'
+#' @examples
+#' # create a dataframe containing no missing values
+#' mt_complete <- mtcars[complete.cases(mtcars), ]
+#'
+#' # train a logistic regression model using glm
+#' fit(am ~ mpg, data = mt_complete, classifier = "glm")
+#'
+#' # train a random forest classifier using randomForest
+#' fit(as.factor(am) ~ ., data = mt_complete, classifier = "randomforest")
+#'
+#' # train a support vector machine with linear kernel using e1071::svm
+#' fit(am ~ ., data = mt_complete, classifier = "e1071")
+#'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
