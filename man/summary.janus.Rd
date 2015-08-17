@@ -18,6 +18,13 @@ None
 Provides a text summary of a fitted janus model, with appropriate output
    based on the underlying classifier.
 }
+\examples{
+# train a logistic regression model using glm
+mod <- fit(am ~ mpg, data = mtcars, classifier = "glm")
+
+# show a summary for the fitted model
+summary(mod)
+}
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }

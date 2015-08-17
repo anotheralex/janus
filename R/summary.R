@@ -8,6 +8,13 @@
 #'
 #' @return None
 #'
+#' @examples
+#' # train a logistic regression model using glm
+#' mod <- fit(am ~ mpg, data = mtcars, classifier = "glm")
+#'
+#' # show a summary for the fitted model
+#' summary(mod)
+#'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
 #' @export
