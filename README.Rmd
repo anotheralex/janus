@@ -55,7 +55,7 @@ Both free and commercial versions of RStudio are available. We recommend simply 
 
 ## Installing devtools
 
-devtools ([homepage](https://github.com/hadley/devtools/)) is a tool that simplifies using R as a programming language rather than just a statistics environment. In our case, we are using devtools to aid deployment, through a function that allows installing packages hosted on GitHub with a minimum of fuss.
+devtools ([homepage](https://github.com/hadley/devtools/)) is an package that simplifies using R as a programming language rather than just a statistics environment. In our case, we are using devtools to aid deployment, through a function that allows installing packages hosted on GitHub with a minimum of fuss.
 
 To install devtools, run the following command from the console within RStudio.
 ```
@@ -71,3 +71,20 @@ install_github("anotheralex/janus")
 ```
 
 # Running janus
+
+To run janus, load the library from the console.
+```
+library(janus)
+```
+
+Once the library is loaded, you will have access to the functions for selecting features from high dimensional datasets, training classification models using a range of classifiers, and making predictions for new data using these fitted models.
+
+The three main functions included in janus are `filter`, `fit` and `predict`. There is also support for a `plot` command, though this is currently limited.
+
+To find out more about these functions and to see examples of them in action, you can see the help pages by entering the following commands at the console.
+```
+?filter
+?fit
+?predict.janus
+?plot.janus
+```
