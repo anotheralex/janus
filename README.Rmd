@@ -32,7 +32,7 @@ Among the packages currently supported are:
 
 # Installation
 
-We assume here that you are planning to install this from scratch. The general order is therefore:
+If you are planning to install janus from scratch on a system that does not currently have R installed, the general process is as follows:
 
 1. install R
 2. install RStudio
@@ -87,4 +87,12 @@ To find out more about these functions and to see examples of them in action, yo
 ?fit
 ?predict.janus
 ?plot.janus
+```
+
+To see examples of the functions in action, you can use the built-in `example` function in R. These examples provide an overview of the main functionality included in janus.
+```
+example(filter)
+example(fit)
+example(predict)
+example(plot)
 ```
