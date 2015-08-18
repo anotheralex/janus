@@ -2,34 +2,34 @@
 % Please edit documentation in R/predict.R
 \name{predict.janus}
 \alias{predict.janus}
-\title{Predict probabilities or class labels for a fitted janus model}
+\title{Predict probabilities or class labels for a fitted janus model.}
 \usage{
 \method{predict}{janus}(object, newdata = NULL, type = c("class",
   "probability"), ..., threshold = 0.5)
 }
 \arguments{
-\item{object}{a janus object containing a fitted model, as produced by fit}
+\item{object}{janus object containing a fitted model, as produced by fit}
 
-\item{newdata}{a dataframe that will be used to predict class labels
-required for prediction of training samples using support vector machine
-models implemented by the e1071 package}
+\item{newdata}{Dataframe that will be used to predict class labels required
+for prediction of training samples using support vector machine models
+implemented by the e1071 package.}
 
-\item{type}{a string indicating the desired output, either class labels or
-probabilities}
+\item{type}{String indicating the desired output, either class labels or
+probabilities.}
 
-\item{...}{arguments to be passed on to underlying functions}
+\item{...}{Arguments to be passed on to underlying functions}
 
-\item{threshold}{probability threshold for binary classification. Th default
-   value is 0.5}
+\item{threshold}{Probability threshold for binary classification. Th default
+  value is 0.5.}
 }
 \value{
-a vector or dataframe containining class labels or probabilities, as
-   determined by the type argument
+Vector or dataframe containining class labels or probabilities, as
+  determined by the type argument.
 }
 \description{
 Uses a janus model object to predict class labels. If new data is supplied,
-the class labels or probabilities for each option are returned. Otherwise
-the label or probabilities for the training data are predicted.
+the class labels or probabilities for each option are returned. Otherwise the
+label or probabilities for the training data are predicted.
 }
 \details{
 Note that for some models, the new data must be explicitly provided. These
@@ -75,5 +75,10 @@ predict(mod, newdata = x, type = "class")
 }
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
+}
+\seealso{
+Helper functions: \code{\link{predict_e1071}},
+  \code{\link{predict_glm}}, \code{\link{predict_glmnet}},
+  \code{\link{predict_randomforest}}
 }
 
