@@ -33,4 +33,8 @@ fit(am ~ ., data = mt_complete, classifier = "e1071")
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }
+\seealso{
+Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
+  \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
+}
 

@@ -7,6 +7,9 @@
 #'
 #' @return A fitted model in object of class janus.
 #'
+#' @seealso Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
+#'   \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
+#'
 #' @examples
 #' # create a dataframe containing no missing values
 #' mt_complete <- mtcars[complete.cases(mtcars), ]
@@ -43,6 +46,9 @@ fit <- function(x, ...) {
 #' @param ... Additional arguments to be passed to classifiers.
 
 #' @return A fitted model in an object of class janus.
+#'
+#' @seealso Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
+#'   \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
@@ -105,6 +111,9 @@ fit.formula <- function(formula,
 #' @param ... Additional arguments to be passed to classifiers.
 
 #' @return A fitted model in an object of class janus.
+#'
+#' @seealso Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
+#'   \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'

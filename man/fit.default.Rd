@@ -35,4 +35,8 @@ a vector (for binomial) or matrix or dataframe (for multinomial) regression.
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }
+\seealso{
+Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
+  \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
+}
 
