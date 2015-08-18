@@ -82,5 +82,5 @@ To see examples of the functions in action, you can use the built-in `example` f
 
     example(filter)
     example(fit)
-    example(predict)
-    example(plot)
+    example(predict.janus)
+    example(plot.janus)
