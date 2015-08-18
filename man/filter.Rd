@@ -55,4 +55,10 @@ filter(y ~ ., df, method = "cfs")
 \author{
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }
+\seealso{
+Helper functions \code{\link{filter_cfs}},
+  \code{\link{filter_chisq}}, \code{\link{filter_gainratio}},
+  \code{\link{filter_infogain}}, \code{\link{filter_pearson}},
+  \code{\link{filter_spearman}}
+}
 
