@@ -85,7 +85,7 @@ fit.formula <- function(formula,
   switch(EXPR = classifier,
          "e1071" = fit_e1071(formula, data, ...),
          "glm" = fit_glm(formula, data),
-         "randomforest" = fit_randomforest(formula, data),
+         "randomforest" = fit_randomforest(formula, data, ...),
          "glmnet" = fit_glmnet(formula, data, ...)
   )
 }
