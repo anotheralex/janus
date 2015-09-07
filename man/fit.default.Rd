@@ -15,10 +15,7 @@
 \item{classifier}{A string indicating the classifier to use. Available
    options (and source package) include:
 \enumerate{
-  \item "glm": logistic regression (glm)
   \item "glmnet": binomial or multinomial logistic regression (glmnet)
-  \item "randomForest": random forest (randomForest)
-  \item "e1071": support vector machine (e1071)
 }}
 
 \item{subset}{Vector of indices for the subset to be used in fitting.}
@@ -36,7 +33,6 @@ a vector (for binomial) or matrix or dataframe (for multinomial) regression.
 Alex Wollenschlaeger, \email{alexw@panix.com}
 }
 \seealso{
-Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
-  \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
+Helper function \code{\link{fit_glmnet}}
 }
 
