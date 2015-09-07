@@ -101,10 +101,7 @@ fit.formula <- function(formula,
 #' @param classifier A string indicating the classifier to use. Available
 #'    options (and source package) include:
 #' \enumerate{
-#'   \item "glm": logistic regression (glm)
 #'   \item "glmnet": binomial or multinomial logistic regression (glmnet)
-#'   \item "randomForest": random forest (randomForest)
-#'   \item "e1071": support vector machine (e1071)
 #' }
 #'
 #' @param subset Vector of indices for the subset to be used in fitting.
@@ -112,8 +109,7 @@ fit.formula <- function(formula,
 
 #' @return A fitted model in an object of class janus.
 #'
-#' @seealso Helper functions \code{\link{fit_e1071}}, \code{\link{fit_glm}},
-#'   \code{\link{fit_glmnet}}, \code{\link{fit_randomforest}}
+#' @seealso Helper function \code{\link{fit_glmnet}}
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
 #'
