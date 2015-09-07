@@ -3,8 +3,6 @@
 #' @param model A fitted model constructed using a formula interface.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
-#'
-#' @export
 expand_formula <- function(model) {
   UseMethod("expand_formula")
 }
@@ -21,8 +19,6 @@ expand_formula <- function(model) {
 #' @return A formula object containing the expanded formula.
 #'
 #' @author Alex Wollenschlaeger, \email{alexw@@panix.com}
-#'
-#' @export
 expand_formula.janus <- function(model) {
   expanded <- eval(model$call$formula)
   expanded
