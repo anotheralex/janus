@@ -4,13 +4,15 @@
 \alias{fit_randomforest}
 \title{Fit a support vector machine classifier using randomForest::randomForest}
 \usage{
-fit_randomforest(formula, data)
+fit_randomforest(formula, data, ...)
 }
 \arguments{
 \item{formula}{A formula object.}
 
 \item{data}{A data frame containing the predictor variables and a categorical
-   response variable.}
+response variable.}
+
+\item{...}{Additional parameters to be passed on.}
 }
 \value{
 A fitted model in object of class janus.
