@@ -23,7 +23,8 @@ fit_e1071 <- function(formula, data, ...) {
                       data = data,
                       kernel = "linear",
                       type = "C-classification",
-                      probability = TRUE)
+                      probability = TRUE,
+                      ...)
   class(model) <- c("janus", class(model))
   model
 }
